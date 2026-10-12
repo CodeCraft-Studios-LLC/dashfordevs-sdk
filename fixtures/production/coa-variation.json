@@ -1,0 +1,22 @@
+{
+  "product": {
+    "id": "invprod__UOFZUtUXn_rByXIuf_e7gA",
+    "name": "Lost THC 5G THCP Switch Disposable",
+    "slug": "5g-thcp-switch-disposable",
+    "active": true,
+    "has_variations": true
+  },
+  "variation": {
+    "id": "attropt__xJhpUgwZYGlHmQ",
+    "name": "Atomic Blue Dream + Tropical Zushi",
+    "slug": "atomic-blue-dream-+-tropical-zushi",
+    "image": "https://dashfordevs.nyc3.cdn.digitaloceanspaces.com/media/inventory/org__jFsi6EXSayylauTO0mIOlA/products/invprod__UOFZUtUXn_rByXIuf_e7gA/sizes/prodsize__boVnMKkR1hX2WQBI/ATOMIC_BLUE_DREAM__TROPICAL_ZUSHI1.jpg",
+    "lab_report_url": "https://dashfordevs.nyc3.cdn.digitaloceanspaces.com/media/inventory/files/attropt__xJhpUgwZYGlHmQ/Atomic_Blue_Dream__Tropical_Zushi.pdf",
+    "lab_report_urls": [
+      {
+        "name": "Lab Report",
+        "url": "https://dashfordevs.nyc3.cdn.digitaloceanspaces.com/media/inventory/files/attropt__xJhpUgwZYGlHmQ/Atomic_Blue_Dream__Tropical_Zushi.pdf"
+      }
+    ]
+  }
+}

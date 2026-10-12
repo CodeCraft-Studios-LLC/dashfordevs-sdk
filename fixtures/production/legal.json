@@ -1,0 +1,19 @@
+{
+  "documents": [
+    {
+      "title": "Affiliate Policy",
+      "slug": "affiliate-policy",
+      "updated_at": "2026-03-21T18:15:49.223187+00:00"
+    },
+    {
+      "title": "Privacy Policy",
+      "slug": "privacy-policy",
+      "updated_at": "2026-03-21T18:07:47.061741+00:00"
+    },
+    {
+      "title": "Refund Policy",
+      "slug": "refund-policy",
+      "updated_at": "2026-03-21T18:10:21.870587+00:00"
+    }
+  ]
+}

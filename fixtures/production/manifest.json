@@ -1,0 +1,490 @@
+{
+  "host": "api.dashfordevs.com",
+  "key": "pk_test_****teCF",
+  "captured_at": "2026-10-12T03:18:52.754Z",
+  "endpoints": {
+    "ping": {
+      "path": "/api/storefront/ping",
+      "sdk": "dash.ping()",
+      "status": 200,
+      "json": true,
+      "content_type": "application/json",
+      "top_level_keys": [
+        "status",
+        "message",
+        "organization",
+        "environment",
+        "timestamp"
+      ],
+      "truncated_arrays": {}
+    },
+    "global": {
+      "path": "/api/storefront/global",
+      "sdk": "dash.getGlobalData()",
+      "status": 200,
+      "json": true,
+      "content_type": "application/json",
+      "top_level_keys": [
+        "global"
+      ],
+      "truncated_arrays": {}
+    },
+    "products-list": {
+      "path": "/api/storefront/products?limit=3",
+      "sdk": "dash.products.list({ limit: 3 })",
+      "status": 200,
+      "json": true,
+      "content_type": "application/json",
+      "top_level_keys": [
+        "products",
+        "pagination"
+      ],
+      "truncated_arrays": {
+        "products[0].main_image_data.variants.webp": 4,
+        "products[1].main_image_data.variants.webp": 4,
+        "products[2].main_image_data.variants.webp": 4
+      }
+    },
+    "product-core": {
+      "path": "/api/storefront/products/7g-flawless-rosin-blend-disposable-v2/core",
+      "sdk": "dash.products.getCore(slug)",
+      "status": 200,
+      "json": true,
+      "content_type": "application/json",
+      "top_level_keys": [
+        "product"
+      ],
+      "truncated_arrays": {
+        "product.main_image_data.variants.webp": 4,
+        "product.images": 7
+      }
+    },
+    "product-options": {
+      "path": "/api/storefront/products/7g-flawless-rosin-blend-disposable-v2/options",
+      "sdk": "dash.products.getOptions(slug)",
+      "status": 200,
+      "json": true,
+      "content_type": "application/json",
+      "top_level_keys": [
+        "options"
+      ],
+      "truncated_arrays": {
+        "options.selectable_variations": 7,
+        "options.selectable_variations[0].image_data.variants.webp": 4,
+        "options.selectable_variations[0].sizes[0].image_data.variants.webp": 4,
+        "options.selectable_variations[1].image_data.variants.webp": 4,
+        "options.selectable_variations[1].sizes[0].image_data.variants.webp": 4,
+        "options.selectable_variations[2].image_data.variants.webp": 4,
+        "options.selectable_variations[2].sizes[0].image_data.variants.webp": 4,
+        "options.lab_reports": 7,
+        "options.attributes[0].options": 7,
+        "options.attributes[0].options[0].sizes[0].image_data.variants.webp": 4,
+        "options.attributes[0].options[1].sizes[0].image_data.variants.webp": 4,
+        "options.attributes[0].options[2].sizes[0].image_data.variants.webp": 4,
+        "options.related": 8,
+        "options.related[0].main_image_data.variants.webp": 4,
+        "options.related[1].main_image_data.variants.webp": 4,
+        "options.related[2].main_image_data.variants.webp": 4
+      }
+    },
+    "product-reviews": {
+      "path": "/api/storefront/products/7g-flawless-rosin-blend-disposable-v2/reviews?limit=2",
+      "sdk": "dash.products.getReviews(slug, { limit: 2 })",
+      "status": 200,
+      "json": true,
+      "content_type": "application/json",
+      "top_level_keys": [
+        "reviews",
+        "avg_rating",
+        "total",
+        "pagination"
+      ],
+      "truncated_arrays": {}
+    },
+    "seo-product": {
+      "path": "/api/storefront/seo/product/7g-flawless-rosin-blend-disposable-v2",
+      "sdk": "dash.seo.product(slug)",
+      "status": 200,
+      "json": true,
+      "content_type": "application/json",
+      "top_level_keys": [
+        "seo"
+      ],
+      "truncated_arrays": {}
+    },
+    "reviews": {
+      "path": "/api/storefront/reviews?limit=2",
+      "sdk": "dash.products.getAllReviews({ limit: 2 })",
+      "status": 200,
+      "json": true,
+      "content_type": "application/json",
+      "top_level_keys": [
+        "reviews",
+        "avg_rating",
+        "total",
+        "pagination"
+      ],
+      "truncated_arrays": {}
+    },
+    "featured-variations": {
+      "path": "/api/storefront/featured-variations",
+      "sdk": "dash.products.getFeaturedVariations()",
+      "status": 200,
+      "json": true,
+      "content_type": "application/json",
+      "top_level_keys": [
+        "variations"
+      ],
+      "truncated_arrays": {}
+    },
+    "categories": {
+      "path": "/api/storefront/categories",
+      "sdk": "dash.categories.list()",
+      "status": 200,
+      "json": true,
+      "content_type": "application/json",
+      "top_level_keys": [
+        "categories"
+      ],
+      "truncated_arrays": {
+        "categories": 5,
+        "categories[0].image_data.variants.webp": 4,
+        "categories[0].hero_image_data.variants.webp": 4,
+        "categories[0].faqs": 6,
+        "categories[1].image_data.variants.webp": 4,
+        "categories[1].hero_image_data.variants.webp": 4,
+        "categories[1].faqs": 7,
+        "categories[2].image_data.variants.webp": 4,
+        "categories[2].hero_image_data.variants.webp": 4,
+        "categories[2].faqs": 4
+      }
+    },
+    "categories-tree": {
+      "path": "/api/storefront/categories?tree=true",
+      "sdk": "dash.categories.getTree()",
+      "status": 200,
+      "json": true,
+      "content_type": "application/json",
+      "top_level_keys": [
+        "categories"
+      ],
+      "truncated_arrays": {
+        "categories": 5,
+        "categories[0].image_data.variants.webp": 4,
+        "categories[0].hero_image_data.variants.webp": 4,
+        "categories[0].faqs": 6,
+        "categories[1].image_data.variants.webp": 4,
+        "categories[1].hero_image_data.variants.webp": 4,
+        "categories[1].faqs": 7,
+        "categories[2].image_data.variants.webp": 4,
+        "categories[2].hero_image_data.variants.webp": 4,
+        "categories[2].faqs": 4
+      }
+    },
+    "category": {
+      "path": "/api/storefront/categories/vapes?limit=2",
+      "sdk": "dash.categories.get(slug, { limit: 2 })",
+      "status": 200,
+      "json": true,
+      "content_type": "application/json",
+      "top_level_keys": [
+        "category"
+      ],
+      "truncated_arrays": {
+        "category.image_data.variants.webp": 4,
+        "category.hero_image_data.variants.webp": 4,
+        "category.faqs": 6,
+        "category.products.items[0].main_image_data.variants.webp": 4,
+        "category.products.items[1].main_image_data.variants.webp": 4
+      }
+    },
+    "brands": {
+      "path": "/api/storefront/brands",
+      "sdk": "dash.brands.list()",
+      "status": 200,
+      "json": true,
+      "content_type": "application/json",
+      "top_level_keys": [
+        "brands"
+      ],
+      "truncated_arrays": {}
+    },
+    "brand": {
+      "path": "/api/storefront/brands/lost-thc?limit=2",
+      "sdk": "dash.brands.get(slug, { limit: 2 })",
+      "status": 200,
+      "json": true,
+      "content_type": "application/json",
+      "top_level_keys": [
+        "brand",
+        "products",
+        "pagination"
+      ],
+      "truncated_arrays": {
+        "products[0].main_image_data.variants.webp": 4,
+        "products[0].files": 5,
+        "products[1].main_image_data.variants.webp": 4
+      }
+    },
+    "blog-posts": {
+      "path": "/api/storefront/blog/posts?limit=2",
+      "sdk": "dash.blog.list({ limit: 2 })",
+      "status": 200,
+      "json": true,
+      "content_type": "application/json",
+      "top_level_keys": [
+        "posts",
+        "pagination"
+      ],
+      "truncated_arrays": {
+        "pagination.pages": 22
+      }
+    },
+    "blog-post": {
+      "path": "/api/storefront/blog/posts/thca-ban-december-11-2026?track_views=none",
+      "sdk": "dash.blog.get(slug, { trackViews: \"none\" })",
+      "status": 200,
+      "json": true,
+      "content_type": "application/json",
+      "top_level_keys": [
+        "post"
+      ],
+      "truncated_arrays": {}
+    },
+    "seo-blog": {
+      "path": "/api/storefront/seo/blog/thca-ban-december-11-2026",
+      "sdk": "dash.seo.blogPost(slug)",
+      "status": 200,
+      "json": true,
+      "content_type": "application/json",
+      "top_level_keys": [
+        "seo"
+      ],
+      "truncated_arrays": {}
+    },
+    "blog-categories": {
+      "path": "/api/storefront/blog/categories",
+      "sdk": "dash.blog.listCategories()",
+      "status": 200,
+      "json": true,
+      "content_type": "application/json",
+      "top_level_keys": [
+        "categories"
+      ],
+      "truncated_arrays": {
+        "categories": 4
+      }
+    },
+    "pages": {
+      "path": "/api/storefront/pages",
+      "sdk": "dash.pages.list()",
+      "status": 200,
+      "json": true,
+      "content_type": "application/json",
+      "top_level_keys": [
+        "pages"
+      ],
+      "truncated_arrays": {}
+    },
+    "content-types": {
+      "path": "/api/storefront/content-types",
+      "sdk": "dash.pageGroups.list()",
+      "status": 200,
+      "json": true,
+      "content_type": "application/json",
+      "top_level_keys": [
+        "content_types"
+      ],
+      "truncated_arrays": {}
+    },
+    "sitemap": {
+      "path": "/api/storefront/sitemap",
+      "sdk": "dash.sitemap.get()",
+      "status": 500,
+      "json": false,
+      "content_type": "text/html; charset=utf-8",
+      "top_level_keys": null,
+      "truncated_arrays": {}
+    },
+    "legal": {
+      "path": "/api/storefront/legal",
+      "sdk": "dash.legal.list()",
+      "status": 200,
+      "json": true,
+      "content_type": "application/json",
+      "top_level_keys": [
+        "documents"
+      ],
+      "truncated_arrays": {
+        "documents": 5
+      }
+    },
+    "legal-document": {
+      "path": "/api/storefront/legal/affiliate-policy",
+      "sdk": "dash.legal.get(slug)",
+      "status": 200,
+      "json": true,
+      "content_type": "application/json",
+      "top_level_keys": [
+        "document"
+      ],
+      "truncated_arrays": {}
+    },
+    "coa": {
+      "path": "/api/storefront/coa",
+      "sdk": "dash.coa.list()",
+      "status": 200,
+      "json": true,
+      "content_type": "application/json",
+      "top_level_keys": [
+        "products",
+        "total_products"
+      ],
+      "truncated_arrays": {
+        "products": 29
+      }
+    },
+    "coa-product": {
+      "path": "/api/storefront/coa/5g-thcp-switch-disposable",
+      "sdk": "dash.coa.getProduct(slug)",
+      "status": 200,
+      "json": true,
+      "content_type": "application/json",
+      "top_level_keys": [
+        "product",
+        "variations",
+        "total_variations"
+      ],
+      "truncated_arrays": {
+        "variations": 10
+      }
+    },
+    "coa-variation": {
+      "path": "/api/storefront/coa/5g-thcp-switch-disposable/atomic-blue-dream-%2B-tropical-zushi",
+      "sdk": "dash.coa.getVariation(slug, v)",
+      "status": 200,
+      "json": true,
+      "content_type": "application/json",
+      "top_level_keys": [
+        "product",
+        "variation"
+      ],
+      "truncated_arrays": {}
+    },
+    "loyalty-summary": {
+      "path": "/api/storefront/loyalty/summary",
+      "sdk": "dash.loyalty.summary()",
+      "status": 200,
+      "json": true,
+      "content_type": "application/json",
+      "top_level_keys": [
+        "enabled",
+        "display_mode",
+        "points_per_currency_unit",
+        "currency",
+        "earn_rate",
+        "earn_rules",
+        "balance"
+      ],
+      "truncated_arrays": {}
+    },
+    "discount-store": {
+      "path": "/api/storefront/discount-store",
+      "sdk": "dash.discountStore.list()",
+      "status": 200,
+      "json": true,
+      "content_type": "application/json",
+      "top_level_keys": [
+        "products",
+        "customer_points",
+        "balance"
+      ],
+      "truncated_arrays": {}
+    },
+    "cart-tier-discounts": {
+      "path": "/api/storefront/cart-tier-discounts",
+      "sdk": "dash.cart.getTierDiscounts()",
+      "status": 200,
+      "json": true,
+      "content_type": "application/json",
+      "top_level_keys": [
+        "tiers"
+      ],
+      "truncated_arrays": {}
+    },
+    "shipping-locations": {
+      "path": "/api/storefront/shipping-locations",
+      "sdk": "dash.checkout.getShippingLocations()",
+      "status": 200,
+      "json": true,
+      "content_type": "application/json",
+      "top_level_keys": [
+        "countries"
+      ],
+      "truncated_arrays": {
+        "countries[0].states": 51
+      }
+    },
+    "banned-state-names": {
+      "path": "/api/storefront/banned-state-names",
+      "sdk": "dash.checkout.getBannedStateNames()",
+      "status": 200,
+      "json": true,
+      "content_type": "application/json",
+      "top_level_keys": [
+        "banned_states"
+      ],
+      "truncated_arrays": {
+        "banned_states": 13
+      }
+    },
+    "calendar-settings": {
+      "path": "/api/storefront/calendar/settings",
+      "sdk": "dash.calendar.getSettings()",
+      "status": 200,
+      "json": true,
+      "content_type": "application/json",
+      "top_level_keys": [
+        "settings"
+      ],
+      "truncated_arrays": {}
+    },
+    "affiliates-form-config": {
+      "path": "/api/storefront/affiliates/form-config",
+      "sdk": "dash.affiliates.getFormConfig()",
+      "status": 200,
+      "json": true,
+      "content_type": "application/json",
+      "top_level_keys": [
+        "is_active",
+        "custom_fields",
+        "welcome_message"
+      ],
+      "truncated_arrays": {
+        "custom_fields": 7,
+        "custom_fields[1].options": 7
+      }
+    },
+    "error-product-not-found": {
+      "path": "/api/storefront/products/this-slug-does-not-exist-dash4devs-v2/core",
+      "sdk": "dash.products.getCore(missing)",
+      "status": 404,
+      "json": true,
+      "content_type": "application/json",
+      "top_level_keys": [
+        "error",
+        "message"
+      ],
+      "truncated_arrays": {}
+    },
+    "error-forms-unrouted": {
+      "path": "/api/storefront/forms/contact",
+      "sdk": "dash.forms.get(slug) - not routed in production",
+      "status": 404,
+      "json": false,
+      "content_type": "text/html; charset=utf-8",
+      "top_level_keys": null,
+      "truncated_arrays": {}
+    }
+  }
+}

@@ -1,0 +1,239 @@
+{
+  "products": [
+    {
+      "id": "invprod__ZkxUPfeDxYUU5LtggmnCcQ",
+      "name": "Lost THC 7G THCA Flawless Rosin Blend Disposable V2",
+      "short_name": null,
+      "slug": "7g-flawless-rosin-blend-disposable-v2",
+      "url_slug": "7g-flawless-rosin-blend-disposable-v2",
+      "main_image": "https://dashfordevs.nyc3.cdn.digitaloceanspaces.com/media/inventory/org__jFsi6EXSayylauTO0mIOlA/products/invprod__ZkxUPfeDxYUU5LtggmnCcQ/sizes/prodsize__6an-6LfRF5n_01O1/blooberry-z-device-and-packaging-photo-0729e92f.jpg",
+      "main_image_data": {
+        "url": "https://dashfordevs.nyc3.cdn.digitaloceanspaces.com/media/inventory/org__jFsi6EXSayylauTO0mIOlA/products/invprod__ZkxUPfeDxYUU5LtggmnCcQ/sizes/prodsize__6an-6LfRF5n_01O1/blooberry-z-device-and-packaging-photo-0729e92f.jpg",
+        "lqip": "data:image/webp;base64,UklGRqAAAABXRUJQVlA4IJQAAADQBACdASoYABgAPwF0r1KrJqQiqAqpYCAJYwBUfoPQ5u8/B7NFh8AWmgTVTquAAAD+8dwb2SbpftBnmhM4MI2ZGJd6LUEgskEJrJHZNiZXgLr2MmRwRASPc/RIxv7TofOhHW+zmpnH5Z9ZMbQ9uOWh9maDzeoZKHoYgAQy+J2u3Ua4mAQ8vLaYTJFUSHuwh5h1gAAA",
+        "variants_ready": true,
+        "variants": {
+          "webp": [
+            {
+              "width": 320,
+              "url": "https://dashfordevs.nyc3.cdn.digitaloceanspaces.com/media/variants/60a256918e73c83a68912067c4477202/v1/img-320.webp"
+            },
+            {
+              "width": 640,
+              "url": "https://dashfordevs.nyc3.cdn.digitaloceanspaces.com/media/variants/60a256918e73c83a68912067c4477202/v1/img-640.webp"
+            },
+            {
+              "width": 1024,
+              "url": "https://dashfordevs.nyc3.cdn.digitaloceanspaces.com/media/variants/60a256918e73c83a68912067c4477202/v1/img-1024.webp"
+            }
+          ]
+        }
+      },
+      "main_size": {
+        "id": "prodsize__6an-6LfRF5n_01O1",
+        "size_display": "7g",
+        "price": "39.99",
+        "discounted_price": null,
+        "stock": 0,
+        "image": "https://dashfordevs.nyc3.cdn.digitaloceanspaces.com/media/inventory/org__jFsi6EXSayylauTO0mIOlA/products/invprod__ZkxUPfeDxYUU5LtggmnCcQ/sizes/prodsize__6an-6LfRF5n_01O1/blooberry-z-device-and-packaging-photo-0729e92f.jpg"
+      },
+      "category": {
+        "id": "invcat__EcnueaJo_dXdJK3Z",
+        "name": "Disposables",
+        "slug": "vapes",
+        "parent": null
+      },
+      "categories": [
+        {
+          "id": "invcat__EcnueaJo_dXdJK3Z",
+          "name": "Disposables",
+          "slug": "vapes",
+          "parent": null
+        }
+      ],
+      "price": "39.99",
+      "discounted_price": null,
+      "in_stock": true,
+      "avg_rating": 5,
+      "reviews_count": 1,
+      "max_bulk_discount": null,
+      "custom_fields": {
+        "popular": true
+      },
+      "all_type_names": null,
+      "bundle_type": "",
+      "variation_param": "blooberry-z",
+      "allowed_state_ids": [],
+      "brand": null,
+      "files": [],
+      "subscription_savings": {
+        "min": 10,
+        "max": 15
+      }
+    },
+    {
+      "id": "invprod__ixEeGTFBSGqe_WKqYsVWig",
+      "name": "Lost THC 8G THCA Disposable V2",
+      "short_name": null,
+      "slug": "8g-thca-disposable-vape-v2",
+      "url_slug": "8g-thca-disposable-vape-v2",
+      "main_image": "https://dashfordevs.nyc3.cdn.digitaloceanspaces.com/media/inventory/org__jFsi6EXSayylauTO0mIOlA/products/invprod__ixEeGTFBSGqe_WKqYsVWig/sizes/prodsize__UiiTB4m1_2pOYsHU/Copy_of_RS11_X_BANANA_OG.jpg",
+      "main_image_data": {
+        "url": "https://dashfordevs.nyc3.cdn.digitaloceanspaces.com/media/inventory/org__jFsi6EXSayylauTO0mIOlA/products/invprod__ixEeGTFBSGqe_WKqYsVWig/sizes/prodsize__UiiTB4m1_2pOYsHU/Copy_of_RS11_X_BANANA_OG.jpg",
+        "lqip": "data:image/webp;base64,UklGRqQAAABXRUJQVlA4IJgAAAAwBACdASoYABgAPwFwslIrJiSiqAqpYCAJZgDLLBEc5cis8UANcmjC/AAA/t6Hc4MRYa75XiIDok1UpnY6cXTs+vq8+OOJgFcjFrO6gIo7mS8gjSwgErqMgUsoFpzK2SL/O5WEhEAJqg1iQkODY1RoxdGlgPf5y1NvnwceLHz0vJL2uGvKNBirB7GCjj8aE0PNf9+iNwkYAA==",
+        "variants_ready": true,
+        "variants": {
+          "webp": [
+            {
+              "width": 320,
+              "url": "https://dashfordevs.nyc3.cdn.digitaloceanspaces.com/media/variants/d14bdb120e93828a98a29f65a1c4ae38/v1/img-320.webp"
+            },
+            {
+              "width": 640,
+              "url": "https://dashfordevs.nyc3.cdn.digitaloceanspaces.com/media/variants/d14bdb120e93828a98a29f65a1c4ae38/v1/img-640.webp"
+            },
+            {
+              "width": 1024,
+              "url": "https://dashfordevs.nyc3.cdn.digitaloceanspaces.com/media/variants/d14bdb120e93828a98a29f65a1c4ae38/v1/img-1024.webp"
+            }
+          ]
+        }
+      },
+      "main_size": {
+        "id": "prodsize__UiiTB4m1_2pOYsHU",
+        "size_display": "8g",
+        "price": "45.99",
+        "discounted_price": null,
+        "stock": 43,
+        "image": "https://dashfordevs.nyc3.cdn.digitaloceanspaces.com/media/inventory/org__jFsi6EXSayylauTO0mIOlA/products/invprod__ixEeGTFBSGqe_WKqYsVWig/sizes/prodsize__UiiTB4m1_2pOYsHU/Copy_of_RS11_X_BANANA_OG.jpg"
+      },
+      "category": {
+        "id": "invcat__EcnueaJo_dXdJK3Z",
+        "name": "Disposables",
+        "slug": "vapes",
+        "parent": null
+      },
+      "categories": [
+        {
+          "id": "invcat__EcnueaJo_dXdJK3Z",
+          "name": "Disposables",
+          "slug": "vapes",
+          "parent": null
+        }
+      ],
+      "price": "45.99",
+      "discounted_price": null,
+      "in_stock": true,
+      "avg_rating": 4.9,
+      "reviews_count": 7,
+      "max_bulk_discount": null,
+      "custom_fields": {
+        "popular": true,
+        "snippet": "htmltmpl__TPCme_LS-CDuJYyh16I_Zw"
+      },
+      "all_type_names": "Indica +2",
+      "bundle_type": "",
+      "variation_param": "rs11-x-banana-og-1",
+      "allowed_state_ids": [],
+      "brand": {
+        "id": "brand__vWKVoe7-IU0_a-t4sq8kBg",
+        "name": "Lost THC",
+        "slug": "lost-thc",
+        "image": null,
+        "image_data": null,
+        "description": "",
+        "short_description": ""
+      },
+      "files": [],
+      "subscription_savings": {
+        "min": 10,
+        "max": 15
+      }
+    },
+    {
+      "id": "invprod__Zbd28RxVh4KCm9mIRhkFOg",
+      "name": "Lost THC 7G THCA Live Resin Disposable",
+      "short_name": null,
+      "slug": "thca-live-resin-disposable-7g",
+      "url_slug": "thca-live-resin-disposable-7g",
+      "main_image": "https://dashfordevs.nyc3.cdn.digitaloceanspaces.com/media/inventory/org__jFsi6EXSayylauTO0mIOlA/products/invprod__Zbd28RxVh4KCm9mIRhkFOg/sizes/prodsize__kMQcRq7aMrpVNKyV/7_GRAM_THCA_DISPOSABLE_BLUEBERRY_YUM_YUM_176319.webp",
+      "main_image_data": {
+        "url": "https://dashfordevs.nyc3.cdn.digitaloceanspaces.com/media/inventory/org__jFsi6EXSayylauTO0mIOlA/products/invprod__Zbd28RxVh4KCm9mIRhkFOg/sizes/prodsize__kMQcRq7aMrpVNKyV/7_GRAM_THCA_DISPOSABLE_BLUEBERRY_YUM_YUM_176319.webp",
+        "lqip": "data:image/webp;base64,UklGRowAAABXRUJQVlA4IIAAAABwBACdASoYABgAPwFwrk8rJqQiMAgBYCAJYwDKtCHhX76uOn2hi5dKBf9QAAD+8dhtnZeeicdfR8BIweUzwmQUvXI3nAGfxY0rHRSAbGh8x67ekxZriGAfwuf4onfqVyC3mxAV5286vDkxMskFBS154mLgvFynErt2r9Zb5dwAAA==",
+        "variants_ready": true,
+        "variants": {
+          "webp": [
+            {
+              "width": 320,
+              "url": "https://dashfordevs.nyc3.cdn.digitaloceanspaces.com/media/variants/8eee89bf2627fc9a21b3a1a2b30d057d/v1/img-320.webp"
+            },
+            {
+              "width": 640,
+              "url": "https://dashfordevs.nyc3.cdn.digitaloceanspaces.com/media/variants/8eee89bf2627fc9a21b3a1a2b30d057d/v1/img-640.webp"
+            },
+            {
+              "width": 1024,
+              "url": "https://dashfordevs.nyc3.cdn.digitaloceanspaces.com/media/variants/8eee89bf2627fc9a21b3a1a2b30d057d/v1/img-1024.webp"
+            }
+          ]
+        }
+      },
+      "main_size": {
+        "id": "prodsize__kMQcRq7aMrpVNKyV",
+        "size_display": "7g",
+        "price": "39.99",
+        "discounted_price": null,
+        "stock": 0,
+        "image": "https://dashfordevs.nyc3.cdn.digitaloceanspaces.com/media/inventory/org__jFsi6EXSayylauTO0mIOlA/products/invprod__Zbd28RxVh4KCm9mIRhkFOg/sizes/prodsize__kMQcRq7aMrpVNKyV/7_GRAM_THCA_DISPOSABLE_BLUEBERRY_YUM_YUM_176319.webp"
+      },
+      "category": {
+        "id": "invcat__EcnueaJo_dXdJK3Z",
+        "name": "Disposables",
+        "slug": "vapes",
+        "parent": null
+      },
+      "categories": [
+        {
+          "id": "invcat__EcnueaJo_dXdJK3Z",
+          "name": "Disposables",
+          "slug": "vapes",
+          "parent": null
+        }
+      ],
+      "price": "39.99",
+      "discounted_price": null,
+      "in_stock": true,
+      "avg_rating": 5,
+      "reviews_count": 1,
+      "max_bulk_discount": null,
+      "custom_fields": {
+        "popular": true,
+        "snippet": "htmltmpl__rl9AyyYAVJcAKTf1Y4iXRw"
+      },
+      "all_type_names": "Sativa +2",
+      "bundle_type": "",
+      "variation_param": "blueberry-yum-yum-1",
+      "allowed_state_ids": [],
+      "brand": {
+        "id": "brand__vWKVoe7-IU0_a-t4sq8kBg",
+        "name": "Lost THC",
+        "slug": "lost-thc",
+        "image": null,
+        "image_data": null,
+        "description": "",
+        "short_description": ""
+      },
+      "files": [],
+      "subscription_savings": {
+        "min": 10,
+        "max": 15
+      }
+    }
+  ],
+  "pagination": {
+    "total": 33,
+    "limit": 3,
+    "offset": 0,
+    "page": 1,
+    "has_more": true
+  }
+}

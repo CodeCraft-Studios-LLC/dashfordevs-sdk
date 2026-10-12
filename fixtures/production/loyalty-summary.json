@@ -1,0 +1,40 @@
+{
+  "enabled": false,
+  "display_mode": "points",
+  "points_per_currency_unit": null,
+  "currency": "USD",
+  "earn_rate": {
+    "points_per_dollar_min": 1,
+    "points_per_dollar_max": 10,
+    "percent_back_min": null,
+    "percent_back_max": null,
+    "display": null
+  },
+  "earn_rules": [
+    {
+      "key": "signup",
+      "title": "Create an account",
+      "points": 500,
+      "limit": "Once",
+      "cash_value": null,
+      "display": "500 points"
+    },
+    {
+      "key": "first_order",
+      "title": "Place your first order",
+      "points": 1000,
+      "limit": "Once",
+      "cash_value": null,
+      "display": "1,000 points"
+    },
+    {
+      "key": "referral",
+      "title": "Refer a friend who orders",
+      "points": 3000,
+      "limit": "Every referral",
+      "cash_value": null,
+      "display": "3,000 points"
+    }
+  ],
+  "balance": null
+}

@@ -1,0 +1,32 @@
+{
+  "is_active": true,
+  "custom_fields": [
+    {
+      "key": "shipping_address",
+      "type": "textarea",
+      "label": "Shipping Address",
+      "required": true,
+      "placeholder": "Street address, City, State, ZIP"
+    },
+    {
+      "key": "platforms",
+      "type": "multiselect",
+      "label": "Primary Platforms",
+      "options": [
+        "Instagram",
+        "TikTok",
+        "YouTube"
+      ],
+      "required": true
+    },
+    {
+      "key": "profile_link",
+      "type": "url",
+      "label": "Link to your platform",
+      "required": true,
+      "help_text": "A link to your social media profile or website is required.",
+      "placeholder": "https://instagram.com/yourhandle"
+    }
+  ],
+  "welcome_message": ""
+}

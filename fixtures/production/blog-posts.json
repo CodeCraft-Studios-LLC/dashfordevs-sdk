@@ -1,0 +1,67 @@
+{
+  "posts": [
+    {
+      "id": "blogpost__SRFafVTzgfWGjEmqmkF3ZA",
+      "title": "The December 11 THCA Ban: What Lost THC Can't Sell After It",
+      "slug": "thca-ban-december-11-2026",
+      "excerpt": "On December 11, 2026, federal hemp rules start counting THCA and capping products at 0.4 mg of THC per container. Every product Lost THC sells today is over that line. That ends our vapes, pre-rolls, gummies and brownies, and restocks are already shrinking before the date.",
+      "featured_image": "https://dashfordevs.nyc3.cdn.digitaloceanspaces.com/media/organizations/org__jFsi6EXSayylauTO0mIOlA/blog/blogpost__SRFafVTzgfWGjEmqmkF3ZA/The_December_11_.png",
+      "featured_image_alt": "",
+      "author": "Lost THC",
+      "author_name": "Customer 1",
+      "category": {
+        "id": "blogcat__UxH8mWO5IyCNbr3l",
+        "name": "News",
+        "slug": "News",
+        "color": "#6366f1"
+      },
+      "tags": [],
+      "is_featured": false,
+      "custom_fields": {},
+      "reading_time": 8,
+      "view_count": 45,
+      "published_at": "2026-10-08T08:22:12.770535+00:00",
+      "created_at": "2026-10-08T07:41:54.861283+00:00"
+    },
+    {
+      "id": "blogpost__g_nlirPDz53ZXspqULlKPQ",
+      "title": "Live Rosin vs Hash Rosin: What's the Difference?",
+      "slug": "live-rosin-vs-hash-rosin",
+      "excerpt": "Live rosin is a kind of hash rosin, pressed with no solvent from hash washed from plants frozen at harvest. Cured hash rosin starts with dried plants. How that changes flavor, strength, and price, plus what THCA rosin means.",
+      "featured_image": "https://dashfordevs.nyc3.cdn.digitaloceanspaces.com/media/organizations/org__jFsi6EXSayylauTO0mIOlA/blog/blogpost__g_nlirPDz53ZXspqULlKPQ/live-rosin-vs-ha.png",
+      "featured_image_alt": "",
+      "author": "Lost THC",
+      "author_name": "Customer 2",
+      "category": {
+        "id": "blogcat___OHU_cAITBmrKXxU",
+        "name": "Faq",
+        "slug": "FAQ",
+        "color": "#6366f1"
+      },
+      "tags": [],
+      "is_featured": false,
+      "custom_fields": {},
+      "reading_time": 14,
+      "view_count": 110,
+      "published_at": "2026-09-27T05:28:49.998483+00:00",
+      "created_at": "2026-09-27T05:12:36.804943+00:00"
+    }
+  ],
+  "pagination": {
+    "total": 43,
+    "limit": 2,
+    "offset": 0,
+    "has_more": true,
+    "current_page": 1,
+    "total_pages": 22,
+    "has_next": true,
+    "has_previous": false,
+    "next_page": 2,
+    "previous_page": null,
+    "pages": [
+      1,
+      2,
+      3
+    ]
+  }
+}

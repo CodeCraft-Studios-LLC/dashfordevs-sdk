@@ -1,0 +1,29 @@
+{
+  "countries": [
+    {
+      "id": "country__OF8r7Q",
+      "name": "United States",
+      "code": "US",
+      "states": [
+        {
+          "id": "state__vy_bZWcyAbg",
+          "name": "Alabama",
+          "code": "AL",
+          "banned": false
+        },
+        {
+          "id": "state__ie07A9RKhG0",
+          "name": "Alaska",
+          "code": "AK",
+          "banned": true
+        },
+        {
+          "id": "state__oi49GeWh_EQ",
+          "name": "Arizona",
+          "code": "AZ",
+          "banned": false
+        }
+      ]
+    }
+  ]
+}

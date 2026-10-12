@@ -1,0 +1,11 @@
+{
+  "status": "ok",
+  "message": "API key is valid",
+  "organization": {
+    "id": "org__jFsi6EXSayylauTO0mIOlA",
+    "name": "Lost THC",
+    "is_locked": false
+  },
+  "environment": "test",
+  "timestamp": "2026-10-12T03:18:53.699262+00:00"
+}

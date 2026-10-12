@@ -1,0 +1,16 @@
+{
+  "banned_states": [
+    {
+      "code": "AK",
+      "name": "Alaska"
+    },
+    {
+      "code": "AR",
+      "name": "Arkansas"
+    },
+    {
+      "code": "HI",
+      "name": "Hawaii"
+    }
+  ]
+}

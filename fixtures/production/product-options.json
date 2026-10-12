@@ -1,0 +1,840 @@
+{
+  "options": {
+    "has_variations": true,
+    "selectable_variations": [
+      {
+        "id": "attropt__jcB7oq8zHuyjRw",
+        "name": "Strawberry Guava",
+        "slug": "strawberry-guava",
+        "description": null,
+        "image": "https://dashfordevs.nyc3.cdn.digitaloceanspaces.com/media/inventory/org__jFsi6EXSayylauTO0mIOlA/products/invprod__ZkxUPfeDxYUU5LtggmnCcQ/sizes/prodsize__vmbokZgPI0J9nUJ2/strawberry-guava-device-and-packaging-photo-a235c5e4.jpg",
+        "image_data": {
+          "url": "https://dashfordevs.nyc3.cdn.digitaloceanspaces.com/media/inventory/org__jFsi6EXSayylauTO0mIOlA/products/invprod__ZkxUPfeDxYUU5LtggmnCcQ/sizes/prodsize__vmbokZgPI0J9nUJ2/strawberry-guava-device-and-packaging-photo-a235c5e4.jpg",
+          "lqip": "data:image/webp;base64,UklGRqAAAABXRUJQVlA4IJQAAACQBACdASoYABgAPwF0rlKrJqOiqAqpYCAJYwAALnRjr2WQDyCGbNKvTpLo2wAA/vHcG9km6X7QZ7uihogVR0Yl3otQSDwjFq+15Xe/8PiCaHtXLhPSOnmrU2jfnwlLb/LveCe+lEJA6ek6OH2r86Y7fgT1FQm4/61LX8+jDNwjS31KEw1wT74nim+2uNr0kPplzD4A",
+          "variants_ready": true,
+          "variants": {
+            "webp": [
+              {
+                "width": 320,
+                "url": "https://dashfordevs.nyc3.cdn.digitaloceanspaces.com/media/variants/cd508a17568d6f91e3a7dcc48420a9b9/v1/img-320.webp"
+              },
+              {
+                "width": 640,
+                "url": "https://dashfordevs.nyc3.cdn.digitaloceanspaces.com/media/variants/cd508a17568d6f91e3a7dcc48420a9b9/v1/img-640.webp"
+              },
+              {
+                "width": 1024,
+                "url": "https://dashfordevs.nyc3.cdn.digitaloceanspaces.com/media/variants/cd508a17568d6f91e3a7dcc48420a9b9/v1/img-1024.webp"
+              }
+            ]
+          }
+        },
+        "gallery_images": [],
+        "main": false,
+        "stock": 0,
+        "lab_report": "https://dashfordevs.nyc3.cdn.digitaloceanspaces.com/media/inventory/files/attropt__jcB7oq8zHuyjRw/strawberry-guava-coa-8018445a.pdf",
+        "type_of": null,
+        "custom_fields": {
+          "icon": "https://dashfordevs.nyc3.cdn.digitaloceanspaces.com/media/media_library/org__jFsi6EXSayylauTO0mIOlA/2026/09/910727aa2b8d_strawberry.png",
+          "color": "#e11d48"
+        },
+        "sizes": [
+          {
+            "id": "prodsize__vmbokZgPI0J9nUJ2",
+            "label": "7g",
+            "size_display": "7g",
+            "price": "39.99",
+            "discounted_price": null,
+            "stock": 0,
+            "in_stock": false,
+            "image": "https://dashfordevs.nyc3.cdn.digitaloceanspaces.com/media/inventory/org__jFsi6EXSayylauTO0mIOlA/products/invprod__ZkxUPfeDxYUU5LtggmnCcQ/sizes/prodsize__vmbokZgPI0J9nUJ2/strawberry-guava-device-and-packaging-photo-a235c5e4.jpg",
+            "image_data": {
+              "url": "https://dashfordevs.nyc3.cdn.digitaloceanspaces.com/media/inventory/org__jFsi6EXSayylauTO0mIOlA/products/invprod__ZkxUPfeDxYUU5LtggmnCcQ/sizes/prodsize__vmbokZgPI0J9nUJ2/strawberry-guava-device-and-packaging-photo-a235c5e4.jpg",
+              "lqip": "data:image/webp;base64,UklGRqAAAABXRUJQVlA4IJQAAACQBACdASoYABgAPwF0rlKrJqOiqAqpYCAJYwAALnRjr2WQDyCGbNKvTpLo2wAA/vHcG9km6X7QZ7uihogVR0Yl3otQSDwjFq+15Xe/8PiCaHtXLhPSOnmrU2jfnwlLb/LveCe+lEJA6ek6OH2r86Y7fgT1FQm4/61LX8+jDNwjS31KEw1wT74nim+2uNr0kPplzD4A",
+              "variants_ready": true,
+              "variants": {
+                "webp": [
+                  {
+                    "width": 320,
+                    "url": "https://dashfordevs.nyc3.cdn.digitaloceanspaces.com/media/variants/cd508a17568d6f91e3a7dcc48420a9b9/v1/img-320.webp"
+                  },
+                  {
+                    "width": 640,
+                    "url": "https://dashfordevs.nyc3.cdn.digitaloceanspaces.com/media/variants/cd508a17568d6f91e3a7dcc48420a9b9/v1/img-640.webp"
+                  },
+                  {
+                    "width": 1024,
+                    "url": "https://dashfordevs.nyc3.cdn.digitaloceanspaces.com/media/variants/cd508a17568d6f91e3a7dcc48420a9b9/v1/img-1024.webp"
+                  }
+                ]
+              }
+            },
+            "main": false,
+            "is_main": false,
+            "weight": null,
+            "weight_unit": "g",
+            "size_unit": "g",
+            "cannabinoid_type": "thca",
+            "tax_class": "thca",
+            "tax_class_name": "thca",
+            "points": 5,
+            "has_custom_price": false,
+            "bulk_discounts": [],
+            "subscription_plans": [
+              {
+                "id": "subplan__rb2lB0NgCCimgJZU",
+                "name": "7g every 2 weeks",
+                "subscription_id": "subscription__53qmZh0RVLEc8hOVhpU",
+                "interval_length": 14,
+                "interval_unit": "days",
+                "discount_percent": "15.00",
+                "price": "33.99",
+                "features": [
+                  "Free shipping on your first delivery",
+                  "Skip, pause or cancel anytime"
+                ]
+              },
+              {
+                "id": "subplan__RuK7-Jcv7jisF_kn",
+                "name": "7g every 4 weeks",
+                "subscription_id": "subscription__53qmZh0RVLEc8hOVhpU",
+                "interval_length": 28,
+                "interval_unit": "days",
+                "discount_percent": "10.00",
+                "price": "35.99",
+                "features": [
+                  "Free shipping on your first delivery",
+                  "Skip, pause or cancel anytime"
+                ]
+              }
+            ],
+            "gallery_images": []
+          }
+        ]
+      },
+      {
+        "id": "attropt__FesKmu4w2fVpIQ",
+        "name": "Nectarine Jelly",
+        "slug": "nectarine-jelly",
+        "description": null,
+        "image": "https://dashfordevs.nyc3.cdn.digitaloceanspaces.com/media/inventory/org__jFsi6EXSayylauTO0mIOlA/products/invprod__ZkxUPfeDxYUU5LtggmnCcQ/sizes/prodsize__b63w0ECIhAP4-tOI/nectarine-jelly-device-and-packaging-photo-9c2e3852.jpg",
+        "image_data": {
+          "url": "https://dashfordevs.nyc3.cdn.digitaloceanspaces.com/media/inventory/org__jFsi6EXSayylauTO0mIOlA/products/invprod__ZkxUPfeDxYUU5LtggmnCcQ/sizes/prodsize__b63w0ECIhAP4-tOI/nectarine-jelly-device-and-packaging-photo-9c2e3852.jpg",
+          "lqip": "data:image/webp;base64,UklGRpYAAABXRUJQVlA4IIoAAADQBACdASoYABgAPwFysFIrJqSiqAqpYCAJZQDNhBEcTjQY3bgfm6ALfP8gknLYAAD+8dwb2SbpftBnmg4seYFqWuwUZzZtxCA8Cv3bWlv5X7ZDrbk4R+wE/3SRNXLRwoboAW3zT7mnXdLtDHKwbGPDoNThuHl6v+MNAZDGN6sg2VzhQc2mY0IAAAA=",
+          "variants_ready": true,
+          "variants": {
+            "webp": [
+              {
+                "width": 320,
+                "url": "https://dashfordevs.nyc3.cdn.digitaloceanspaces.com/media/variants/1b367b6f93e4560b033f2ac53c520dd9/v1/img-320.webp"
+              },
+              {
+                "width": 640,
+                "url": "https://dashfordevs.nyc3.cdn.digitaloceanspaces.com/media/variants/1b367b6f93e4560b033f2ac53c520dd9/v1/img-640.webp"
+              },
+              {
+                "width": 1024,
+                "url": "https://dashfordevs.nyc3.cdn.digitaloceanspaces.com/media/variants/1b367b6f93e4560b033f2ac53c520dd9/v1/img-1024.webp"
+              }
+            ]
+          }
+        },
+        "gallery_images": [],
+        "main": false,
+        "stock": 4,
+        "lab_report": "https://dashfordevs.nyc3.cdn.digitaloceanspaces.com/media/inventory/files/attropt__FesKmu4w2fVpIQ/nectarine-jelly-coa-d6c19ee2.pdf",
+        "type_of": null,
+        "custom_fields": {
+          "icon": "https://dashfordevs.nyc3.cdn.digitaloceanspaces.com/media/media_library/org__jFsi6EXSayylauTO0mIOlA/2026/09/05a43d331849_flavor-icon-peach.png",
+          "color": "#fb923c"
+        },
+        "sizes": [
+          {
+            "id": "prodsize__b63w0ECIhAP4-tOI",
+            "label": "7g",
+            "size_display": "7g",
+            "price": "39.99",
+            "discounted_price": null,
+            "stock": 4,
+            "in_stock": true,
+            "image": "https://dashfordevs.nyc3.cdn.digitaloceanspaces.com/media/inventory/org__jFsi6EXSayylauTO0mIOlA/products/invprod__ZkxUPfeDxYUU5LtggmnCcQ/sizes/prodsize__b63w0ECIhAP4-tOI/nectarine-jelly-device-and-packaging-photo-9c2e3852.jpg",
+            "image_data": {
+              "url": "https://dashfordevs.nyc3.cdn.digitaloceanspaces.com/media/inventory/org__jFsi6EXSayylauTO0mIOlA/products/invprod__ZkxUPfeDxYUU5LtggmnCcQ/sizes/prodsize__b63w0ECIhAP4-tOI/nectarine-jelly-device-and-packaging-photo-9c2e3852.jpg",
+              "lqip": "data:image/webp;base64,UklGRpYAAABXRUJQVlA4IIoAAADQBACdASoYABgAPwFysFIrJqSiqAqpYCAJZQDNhBEcTjQY3bgfm6ALfP8gknLYAAD+8dwb2SbpftBnmg4seYFqWuwUZzZtxCA8Cv3bWlv5X7ZDrbk4R+wE/3SRNXLRwoboAW3zT7mnXdLtDHKwbGPDoNThuHl6v+MNAZDGN6sg2VzhQc2mY0IAAAA=",
+              "variants_ready": true,
+              "variants": {
+                "webp": [
+                  {
+                    "width": 320,
+                    "url": "https://dashfordevs.nyc3.cdn.digitaloceanspaces.com/media/variants/1b367b6f93e4560b033f2ac53c520dd9/v1/img-320.webp"
+                  },
+                  {
+                    "width": 640,
+                    "url": "https://dashfordevs.nyc3.cdn.digitaloceanspaces.com/media/variants/1b367b6f93e4560b033f2ac53c520dd9/v1/img-640.webp"
+                  },
+                  {
+                    "width": 1024,
+                    "url": "https://dashfordevs.nyc3.cdn.digitaloceanspaces.com/media/variants/1b367b6f93e4560b033f2ac53c520dd9/v1/img-1024.webp"
+                  }
+                ]
+              }
+            },
+            "main": false,
+            "is_main": false,
+            "weight": null,
+            "weight_unit": "g",
+            "size_unit": "g",
+            "cannabinoid_type": "thca",
+            "tax_class": "thca",
+            "tax_class_name": "thca",
+            "points": 5,
+            "has_custom_price": false,
+            "bulk_discounts": [],
+            "subscription_plans": [
+              {
+                "id": "subplan__TqRVR7wCbWp4i8Pe",
+                "name": "7g every 2 weeks",
+                "subscription_id": "subscription__53qmZh0RVLEc8hOVhpU",
+                "interval_length": 14,
+                "interval_unit": "days",
+                "discount_percent": "15.00",
+                "price": "33.99",
+                "features": [
+                  "Free shipping on your first delivery",
+                  "Skip, pause or cancel anytime"
+                ]
+              },
+              {
+                "id": "subplan__6p-8DxfTpuff3N6R",
+                "name": "7g every 4 weeks",
+                "subscription_id": "subscription__53qmZh0RVLEc8hOVhpU",
+                "interval_length": 28,
+                "interval_unit": "days",
+                "discount_percent": "10.00",
+                "price": "35.99",
+                "features": [
+                  "Free shipping on your first delivery",
+                  "Skip, pause or cancel anytime"
+                ]
+              }
+            ],
+            "gallery_images": []
+          }
+        ]
+      },
+      {
+        "id": "attropt__Vy5T_cFEAHewAQ",
+        "name": "Grape Gushers",
+        "slug": "grape-gushers",
+        "description": null,
+        "image": "https://dashfordevs.nyc3.cdn.digitaloceanspaces.com/media/inventory/org__jFsi6EXSayylauTO0mIOlA/products/invprod__ZkxUPfeDxYUU5LtggmnCcQ/sizes/prodsize__qBkNYc_TzA8TEw66/grape-gushers-device-and-packaging-photo-de268dff.jpg",
+        "image_data": {
+          "url": "https://dashfordevs.nyc3.cdn.digitaloceanspaces.com/media/inventory/org__jFsi6EXSayylauTO0mIOlA/products/invprod__ZkxUPfeDxYUU5LtggmnCcQ/sizes/prodsize__qBkNYc_TzA8TEw66/grape-gushers-device-and-packaging-photo-de268dff.jpg",
+          "lqip": "data:image/webp;base64,UklGRo4AAABXRUJQVlA4IIIAAABwBACdASoYABgAPwFurVCrJiQiqA1RYCAJZwAALnRjr0ymqXYEpyP3Y13yAAD+8dwb2SbpftBnmg4seYFqWuwUZzZuJV+quP/wNGnVi9F8NYZj8ghIsHHZyXqh87muO96XogOHfrsJUHjFa7Awanflp0aWkabkHgfoOv1MhBd4AAAA",
+          "variants_ready": true,
+          "variants": {
+            "webp": [
+              {
+                "width": 320,
+                "url": "https://dashfordevs.nyc3.cdn.digitaloceanspaces.com/media/variants/b7059b69f95e95bd4f08def4af82cab5/v1/img-320.webp"
+              },
+              {
+                "width": 640,
+                "url": "https://dashfordevs.nyc3.cdn.digitaloceanspaces.com/media/variants/b7059b69f95e95bd4f08def4af82cab5/v1/img-640.webp"
+              },
+              {
+                "width": 1024,
+                "url": "https://dashfordevs.nyc3.cdn.digitaloceanspaces.com/media/variants/b7059b69f95e95bd4f08def4af82cab5/v1/img-1024.webp"
+              }
+            ]
+          }
+        },
+        "gallery_images": [],
+        "main": false,
+        "stock": 0,
+        "lab_report": "https://dashfordevs.nyc3.cdn.digitaloceanspaces.com/media/inventory/files/attropt__Vy5T_cFEAHewAQ/grape-gushers-coa-e5aa749d.pdf",
+        "type_of": null,
+        "custom_fields": {
+          "icon": "https://dashfordevs.nyc3.cdn.digitaloceanspaces.com/media/media_library/org__jFsi6EXSayylauTO0mIOlA/2026/09/5e7ebc8297f5_grape.png",
+          "color": "#9333ea"
+        },
+        "sizes": [
+          {
+            "id": "prodsize__qBkNYc_TzA8TEw66",
+            "label": "7g",
+            "size_display": "7g",
+            "price": "39.99",
+            "discounted_price": null,
+            "stock": 0,
+            "in_stock": false,
+            "image": "https://dashfordevs.nyc3.cdn.digitaloceanspaces.com/media/inventory/org__jFsi6EXSayylauTO0mIOlA/products/invprod__ZkxUPfeDxYUU5LtggmnCcQ/sizes/prodsize__qBkNYc_TzA8TEw66/grape-gushers-device-and-packaging-photo-de268dff.jpg",
+            "image_data": {
+              "url": "https://dashfordevs.nyc3.cdn.digitaloceanspaces.com/media/inventory/org__jFsi6EXSayylauTO0mIOlA/products/invprod__ZkxUPfeDxYUU5LtggmnCcQ/sizes/prodsize__qBkNYc_TzA8TEw66/grape-gushers-device-and-packaging-photo-de268dff.jpg",
+              "lqip": "data:image/webp;base64,UklGRo4AAABXRUJQVlA4IIIAAABwBACdASoYABgAPwFurVCrJiQiqA1RYCAJZwAALnRjr0ymqXYEpyP3Y13yAAD+8dwb2SbpftBnmg4seYFqWuwUZzZuJV+quP/wNGnVi9F8NYZj8ghIsHHZyXqh87muO96XogOHfrsJUHjFa7Awanflp0aWkabkHgfoOv1MhBd4AAAA",
+              "variants_ready": true,
+              "variants": {
+                "webp": [
+                  {
+                    "width": 320,
+                    "url": "https://dashfordevs.nyc3.cdn.digitaloceanspaces.com/media/variants/b7059b69f95e95bd4f08def4af82cab5/v1/img-320.webp"
+                  },
+                  {
+                    "width": 640,
+                    "url": "https://dashfordevs.nyc3.cdn.digitaloceanspaces.com/media/variants/b7059b69f95e95bd4f08def4af82cab5/v1/img-640.webp"
+                  },
+                  {
+                    "width": 1024,
+                    "url": "https://dashfordevs.nyc3.cdn.digitaloceanspaces.com/media/variants/b7059b69f95e95bd4f08def4af82cab5/v1/img-1024.webp"
+                  }
+                ]
+              }
+            },
+            "main": false,
+            "is_main": false,
+            "weight": null,
+            "weight_unit": "g",
+            "size_unit": "g",
+            "cannabinoid_type": "thca",
+            "tax_class": "thca",
+            "tax_class_name": "thca",
+            "points": 5,
+            "has_custom_price": false,
+            "bulk_discounts": [],
+            "subscription_plans": [
+              {
+                "id": "subplan__RiRt-2UCF57XOa2x",
+                "name": "7g every 2 weeks",
+                "subscription_id": "subscription__53qmZh0RVLEc8hOVhpU",
+                "interval_length": 14,
+                "interval_unit": "days",
+                "discount_percent": "15.00",
+                "price": "33.99",
+                "features": [
+                  "Free shipping on your first delivery",
+                  "Skip, pause or cancel anytime"
+                ]
+              },
+              {
+                "id": "subplan__zDfEOJxGjY8M1Fzi",
+                "name": "7g every 4 weeks",
+                "subscription_id": "subscription__53qmZh0RVLEc8hOVhpU",
+                "interval_length": 28,
+                "interval_unit": "days",
+                "discount_percent": "10.00",
+                "price": "35.99",
+                "features": [
+                  "Free shipping on your first delivery",
+                  "Skip, pause or cancel anytime"
+                ]
+              }
+            ],
+            "gallery_images": []
+          }
+        ]
+      }
+    ],
+    "lab_reports": [
+      {
+        "variation_name": "Strawberry Guava",
+        "variation_slug": "strawberry-guava",
+        "file_name": "Lab Report",
+        "url": "https://dashfordevs.nyc3.cdn.digitaloceanspaces.com/media/inventory/files/attropt__jcB7oq8zHuyjRw/strawberry-guava-coa-8018445a.pdf"
+      },
+      {
+        "variation_name": "Nectarine Jelly",
+        "variation_slug": "nectarine-jelly",
+        "file_name": "Lab Report",
+        "url": "https://dashfordevs.nyc3.cdn.digitaloceanspaces.com/media/inventory/files/attropt__FesKmu4w2fVpIQ/nectarine-jelly-coa-d6c19ee2.pdf"
+      },
+      {
+        "variation_name": "Grape Gushers",
+        "variation_slug": "grape-gushers",
+        "file_name": "Lab Report",
+        "url": "https://dashfordevs.nyc3.cdn.digitaloceanspaces.com/media/inventory/files/attropt__Vy5T_cFEAHewAQ/grape-gushers-coa-e5aa749d.pdf"
+      }
+    ],
+    "sizes": [],
+    "attributes": [
+      {
+        "id": "prodattr__0heW1H3EslZRXYrX",
+        "name": "Strains",
+        "options": [
+          {
+            "id": "attropt__jcB7oq8zHuyjRw",
+            "value": "Strawberry Guava",
+            "slug": "strawberry-guava",
+            "description": null,
+            "main": false,
+            "use_as_product_page": false,
+            "og_image": null,
+            "seo_title": null,
+            "seo_description": null,
+            "sizes": [
+              {
+                "id": "prodsize__vmbokZgPI0J9nUJ2",
+                "label": "7g",
+                "size_display": "7g",
+                "price": "39.99",
+                "discounted_price": null,
+                "stock": 0,
+                "in_stock": false,
+                "image": "https://dashfordevs.nyc3.cdn.digitaloceanspaces.com/media/inventory/org__jFsi6EXSayylauTO0mIOlA/products/invprod__ZkxUPfeDxYUU5LtggmnCcQ/sizes/prodsize__vmbokZgPI0J9nUJ2/strawberry-guava-device-and-packaging-photo-a235c5e4.jpg",
+                "image_data": {
+                  "url": "https://dashfordevs.nyc3.cdn.digitaloceanspaces.com/media/inventory/org__jFsi6EXSayylauTO0mIOlA/products/invprod__ZkxUPfeDxYUU5LtggmnCcQ/sizes/prodsize__vmbokZgPI0J9nUJ2/strawberry-guava-device-and-packaging-photo-a235c5e4.jpg",
+                  "lqip": "data:image/webp;base64,UklGRqAAAABXRUJQVlA4IJQAAACQBACdASoYABgAPwF0rlKrJqOiqAqpYCAJYwAALnRjr2WQDyCGbNKvTpLo2wAA/vHcG9km6X7QZ7uihogVR0Yl3otQSDwjFq+15Xe/8PiCaHtXLhPSOnmrU2jfnwlLb/LveCe+lEJA6ek6OH2r86Y7fgT1FQm4/61LX8+jDNwjS31KEw1wT74nim+2uNr0kPplzD4A",
+                  "variants_ready": true,
+                  "variants": {
+                    "webp": [
+                      {
+                        "width": 320,
+                        "url": "https://dashfordevs.nyc3.cdn.digitaloceanspaces.com/media/variants/cd508a17568d6f91e3a7dcc48420a9b9/v1/img-320.webp"
+                      },
+                      {
+                        "width": 640,
+                        "url": "https://dashfordevs.nyc3.cdn.digitaloceanspaces.com/media/variants/cd508a17568d6f91e3a7dcc48420a9b9/v1/img-640.webp"
+                      },
+                      {
+                        "width": 1024,
+                        "url": "https://dashfordevs.nyc3.cdn.digitaloceanspaces.com/media/variants/cd508a17568d6f91e3a7dcc48420a9b9/v1/img-1024.webp"
+                      }
+                    ]
+                  }
+                },
+                "main": false,
+                "is_main": false,
+                "weight": null,
+                "weight_unit": "g",
+                "size_unit": "g",
+                "cannabinoid_type": "thca",
+                "tax_class": "thca",
+                "tax_class_name": "thca",
+                "points": 5,
+                "has_custom_price": false,
+                "subscription_plans": [
+                  {
+                    "id": "subplan__rb2lB0NgCCimgJZU",
+                    "name": "7g every 2 weeks",
+                    "subscription_id": "subscription__53qmZh0RVLEc8hOVhpU",
+                    "interval_length": 14,
+                    "interval_unit": "days",
+                    "discount_percent": "15.00",
+                    "price": "33.99",
+                    "features": [
+                      "Free shipping on your first delivery",
+                      "Skip, pause or cancel anytime"
+                    ]
+                  },
+                  {
+                    "id": "subplan__RuK7-Jcv7jisF_kn",
+                    "name": "7g every 4 weeks",
+                    "subscription_id": "subscription__53qmZh0RVLEc8hOVhpU",
+                    "interval_length": 28,
+                    "interval_unit": "days",
+                    "discount_percent": "10.00",
+                    "price": "35.99",
+                    "features": [
+                      "Free shipping on your first delivery",
+                      "Skip, pause or cancel anytime"
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "attropt__FesKmu4w2fVpIQ",
+            "value": "Nectarine Jelly",
+            "slug": "nectarine-jelly",
+            "description": null,
+            "main": false,
+            "use_as_product_page": false,
+            "og_image": null,
+            "seo_title": null,
+            "seo_description": null,
+            "sizes": [
+              {
+                "id": "prodsize__b63w0ECIhAP4-tOI",
+                "label": "7g",
+                "size_display": "7g",
+                "price": "39.99",
+                "discounted_price": null,
+                "stock": 4,
+                "in_stock": true,
+                "image": "https://dashfordevs.nyc3.cdn.digitaloceanspaces.com/media/inventory/org__jFsi6EXSayylauTO0mIOlA/products/invprod__ZkxUPfeDxYUU5LtggmnCcQ/sizes/prodsize__b63w0ECIhAP4-tOI/nectarine-jelly-device-and-packaging-photo-9c2e3852.jpg",
+                "image_data": {
+                  "url": "https://dashfordevs.nyc3.cdn.digitaloceanspaces.com/media/inventory/org__jFsi6EXSayylauTO0mIOlA/products/invprod__ZkxUPfeDxYUU5LtggmnCcQ/sizes/prodsize__b63w0ECIhAP4-tOI/nectarine-jelly-device-and-packaging-photo-9c2e3852.jpg",
+                  "lqip": "data:image/webp;base64,UklGRpYAAABXRUJQVlA4IIoAAADQBACdASoYABgAPwFysFIrJqSiqAqpYCAJZQDNhBEcTjQY3bgfm6ALfP8gknLYAAD+8dwb2SbpftBnmg4seYFqWuwUZzZtxCA8Cv3bWlv5X7ZDrbk4R+wE/3SRNXLRwoboAW3zT7mnXdLtDHKwbGPDoNThuHl6v+MNAZDGN6sg2VzhQc2mY0IAAAA=",
+                  "variants_ready": true,
+                  "variants": {
+                    "webp": [
+                      {
+                        "width": 320,
+                        "url": "https://dashfordevs.nyc3.cdn.digitaloceanspaces.com/media/variants/1b367b6f93e4560b033f2ac53c520dd9/v1/img-320.webp"
+                      },
+                      {
+                        "width": 640,
+                        "url": "https://dashfordevs.nyc3.cdn.digitaloceanspaces.com/media/variants/1b367b6f93e4560b033f2ac53c520dd9/v1/img-640.webp"
+                      },
+                      {
+                        "width": 1024,
+                        "url": "https://dashfordevs.nyc3.cdn.digitaloceanspaces.com/media/variants/1b367b6f93e4560b033f2ac53c520dd9/v1/img-1024.webp"
+                      }
+                    ]
+                  }
+                },
+                "main": false,
+                "is_main": false,
+                "weight": null,
+                "weight_unit": "g",
+                "size_unit": "g",
+                "cannabinoid_type": "thca",
+                "tax_class": "thca",
+                "tax_class_name": "thca",
+                "points": 5,
+                "has_custom_price": false,
+                "subscription_plans": [
+                  {
+                    "id": "subplan__TqRVR7wCbWp4i8Pe",
+                    "name": "7g every 2 weeks",
+                    "subscription_id": "subscription__53qmZh0RVLEc8hOVhpU",
+                    "interval_length": 14,
+                    "interval_unit": "days",
+                    "discount_percent": "15.00",
+                    "price": "33.99",
+                    "features": [
+                      "Free shipping on your first delivery",
+                      "Skip, pause or cancel anytime"
+                    ]
+                  },
+                  {
+                    "id": "subplan__6p-8DxfTpuff3N6R",
+                    "name": "7g every 4 weeks",
+                    "subscription_id": "subscription__53qmZh0RVLEc8hOVhpU",
+                    "interval_length": 28,
+                    "interval_unit": "days",
+                    "discount_percent": "10.00",
+                    "price": "35.99",
+                    "features": [
+                      "Free shipping on your first delivery",
+                      "Skip, pause or cancel anytime"
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "attropt__Vy5T_cFEAHewAQ",
+            "value": "Grape Gushers",
+            "slug": "grape-gushers",
+            "description": null,
+            "main": false,
+            "use_as_product_page": false,
+            "og_image": null,
+            "seo_title": null,
+            "seo_description": null,
+            "sizes": [
+              {
+                "id": "prodsize__qBkNYc_TzA8TEw66",
+                "label": "7g",
+                "size_display": "7g",
+                "price": "39.99",
+                "discounted_price": null,
+                "stock": 0,
+                "in_stock": false,
+                "image": "https://dashfordevs.nyc3.cdn.digitaloceanspaces.com/media/inventory/org__jFsi6EXSayylauTO0mIOlA/products/invprod__ZkxUPfeDxYUU5LtggmnCcQ/sizes/prodsize__qBkNYc_TzA8TEw66/grape-gushers-device-and-packaging-photo-de268dff.jpg",
+                "image_data": {
+                  "url": "https://dashfordevs.nyc3.cdn.digitaloceanspaces.com/media/inventory/org__jFsi6EXSayylauTO0mIOlA/products/invprod__ZkxUPfeDxYUU5LtggmnCcQ/sizes/prodsize__qBkNYc_TzA8TEw66/grape-gushers-device-and-packaging-photo-de268dff.jpg",
+                  "lqip": "data:image/webp;base64,UklGRo4AAABXRUJQVlA4IIIAAABwBACdASoYABgAPwFurVCrJiQiqA1RYCAJZwAALnRjr0ymqXYEpyP3Y13yAAD+8dwb2SbpftBnmg4seYFqWuwUZzZuJV+quP/wNGnVi9F8NYZj8ghIsHHZyXqh87muO96XogOHfrsJUHjFa7Awanflp0aWkabkHgfoOv1MhBd4AAAA",
+                  "variants_ready": true,
+                  "variants": {
+                    "webp": [
+                      {
+                        "width": 320,
+                        "url": "https://dashfordevs.nyc3.cdn.digitaloceanspaces.com/media/variants/b7059b69f95e95bd4f08def4af82cab5/v1/img-320.webp"
+                      },
+                      {
+                        "width": 640,
+                        "url": "https://dashfordevs.nyc3.cdn.digitaloceanspaces.com/media/variants/b7059b69f95e95bd4f08def4af82cab5/v1/img-640.webp"
+                      },
+                      {
+                        "width": 1024,
+                        "url": "https://dashfordevs.nyc3.cdn.digitaloceanspaces.com/media/variants/b7059b69f95e95bd4f08def4af82cab5/v1/img-1024.webp"
+                      }
+                    ]
+                  }
+                },
+                "main": false,
+                "is_main": false,
+                "weight": null,
+                "weight_unit": "g",
+                "size_unit": "g",
+                "cannabinoid_type": "thca",
+                "tax_class": "thca",
+                "tax_class_name": "thca",
+                "points": 5,
+                "has_custom_price": false,
+                "subscription_plans": [
+                  {
+                    "id": "subplan__RiRt-2UCF57XOa2x",
+                    "name": "7g every 2 weeks",
+                    "subscription_id": "subscription__53qmZh0RVLEc8hOVhpU",
+                    "interval_length": 14,
+                    "interval_unit": "days",
+                    "discount_percent": "15.00",
+                    "price": "33.99",
+                    "features": [
+                      "Free shipping on your first delivery",
+                      "Skip, pause or cancel anytime"
+                    ]
+                  },
+                  {
+                    "id": "subplan__zDfEOJxGjY8M1Fzi",
+                    "name": "7g every 4 weeks",
+                    "subscription_id": "subscription__53qmZh0RVLEc8hOVhpU",
+                    "interval_length": 28,
+                    "interval_unit": "days",
+                    "discount_percent": "10.00",
+                    "price": "35.99",
+                    "features": [
+                      "Free shipping on your first delivery",
+                      "Skip, pause or cancel anytime"
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "includes": null,
+    "freestyle_slots": null,
+    "bundle_type": "",
+    "is_bundle": false,
+    "is_variation_page": false,
+    "variation_slug": null,
+    "related": [
+      {
+        "id": "invprod__Yu2Ob85V90EdO7I1Jl8V1w",
+        "name": "Lost THC 3G THCP Diamond Disposable",
+        "short_name": null,
+        "slug": "3g-thcp-diamond-disposable",
+        "url_slug": "3g-thcp-diamond-disposable",
+        "main_image": "https://dashfordevs.nyc3.cdn.digitaloceanspaces.com/media/inventory/org__jFsi6EXSayylauTO0mIOlA/products/invprod__Yu2Ob85V90EdO7I1Jl8V1w/sizes/prodsize__En100XrhJdCnk6bt/Blue_Razz_Eclair.JPG",
+        "main_image_data": {
+          "url": "https://dashfordevs.nyc3.cdn.digitaloceanspaces.com/media/inventory/org__jFsi6EXSayylauTO0mIOlA/products/invprod__Yu2Ob85V90EdO7I1Jl8V1w/sizes/prodsize__En100XrhJdCnk6bt/Blue_Razz_Eclair.JPG",
+          "lqip": "data:image/webp;base64,UklGRq4AAABXRUJQVlA4IKIAAADQBACdASoYABgAPwFsrU6rJiQiMAgBYCAJZAAAVLaKZ72UKXk9X8ke9cMUpqjSgAD+8eAqdT6tND7fTdFrCsQdZza9oIUauVnyb4nGYPqE8PjE64gndnhiQNTsRJ/dueaplAeLr7lMNJt3z/5CD5s8yr7mIbcBp7HAj7b5p1oLbNklU+paW0I2cZllsPh+/MivqjkLYf4iG5DqmlwGRGCgAAA=",
+          "variants_ready": true,
+          "variants": {
+            "webp": [
+              {
+                "width": 320,
+                "url": "https://dashfordevs.nyc3.cdn.digitaloceanspaces.com/media/variants/9ead01c5f120791ab37dddc661c32e51/v1/img-320.webp"
+              },
+              {
+                "width": 640,
+                "url": "https://dashfordevs.nyc3.cdn.digitaloceanspaces.com/media/variants/9ead01c5f120791ab37dddc661c32e51/v1/img-640.webp"
+              },
+              {
+                "width": 1024,
+                "url": "https://dashfordevs.nyc3.cdn.digitaloceanspaces.com/media/variants/9ead01c5f120791ab37dddc661c32e51/v1/img-1024.webp"
+              }
+            ]
+          }
+        },
+        "main_size": {
+          "id": "prodsize__En100XrhJdCnk6bt",
+          "size_display": "3g",
+          "price": "42.99",
+          "discounted_price": null,
+          "stock": 0,
+          "image": "https://dashfordevs.nyc3.cdn.digitaloceanspaces.com/media/inventory/org__jFsi6EXSayylauTO0mIOlA/products/invprod__Yu2Ob85V90EdO7I1Jl8V1w/sizes/prodsize__En100XrhJdCnk6bt/Blue_Razz_Eclair.JPG"
+        },
+        "category": {
+          "id": "invcat__EcnueaJo_dXdJK3Z",
+          "name": "Disposables",
+          "slug": "vapes",
+          "parent": null
+        },
+        "categories": [
+          {
+            "id": "invcat__EcnueaJo_dXdJK3Z",
+            "name": "Disposables",
+            "slug": "vapes",
+            "parent": null
+          }
+        ],
+        "price": "42.99",
+        "discounted_price": null,
+        "in_stock": true,
+        "avg_rating": 0,
+        "reviews_count": 0,
+        "max_bulk_discount": null,
+        "custom_fields": {
+          "snippet": "htmltmpl__Jx6PUQ6pC841TQP_oGQqkA"
+        },
+        "all_type_names": null,
+        "bundle_type": "",
+        "variation_param": "blue-razz-eclair-1",
+        "allowed_state_ids": [],
+        "brand": {
+          "id": "brand__vWKVoe7-IU0_a-t4sq8kBg",
+          "name": "Lost THC",
+          "slug": "lost-thc",
+          "image": null,
+          "image_data": null,
+          "description": "",
+          "short_description": ""
+        },
+        "files": []
+      },
+      {
+        "id": "invprod__UOFZUtUXn_rByXIuf_e7gA",
+        "name": "Lost THC 5G THCP Switch Disposable",
+        "short_name": null,
+        "slug": "5g-thcp-switch-disposable",
+        "url_slug": "5g-thcp-switch-disposable",
+        "main_image": "https://dashfordevs.nyc3.cdn.digitaloceanspaces.com/media/inventory/org__jFsi6EXSayylauTO0mIOlA/products/invprod__UOFZUtUXn_rByXIuf_e7gA/sizes/prodsize__Sn2UcvNtgK_n3m4Y/HONEY_BANANA_GRAPE_MOUNTAIN.jpg",
+        "main_image_data": {
+          "url": "https://dashfordevs.nyc3.cdn.digitaloceanspaces.com/media/inventory/org__jFsi6EXSayylauTO0mIOlA/products/invprod__UOFZUtUXn_rByXIuf_e7gA/sizes/prodsize__Sn2UcvNtgK_n3m4Y/HONEY_BANANA_GRAPE_MOUNTAIN.jpg",
+          "lqip": "data:image/webp;base64,UklGRpoAAABXRUJQVlA4II4AAAAwBQCdASoYABgAPwF0sVIrJqSiqAqpYCAJYgDE2Yvgc0owTxjWCF+eH+iaFOty9hpvgAD+w6Pm8tj6mRcz/ubfBz3jmSYs1lh43LSi5arzSY1KbEyqGORUL9F2TxkERQzc4Pj6Pj0ibrSqlF92guKq6IV4xgAaywuo7f8CI3b6+ILYS9K7NBogAZI2YAAA",
+          "variants_ready": true,
+          "variants": {
+            "webp": [
+              {
+                "width": 320,
+                "url": "https://dashfordevs.nyc3.cdn.digitaloceanspaces.com/media/variants/fefbba552c26b0b0ebdfb63b42b3b8f8/v1/img-320.webp"
+              },
+              {
+                "width": 640,
+                "url": "https://dashfordevs.nyc3.cdn.digitaloceanspaces.com/media/variants/fefbba552c26b0b0ebdfb63b42b3b8f8/v1/img-640.webp"
+              },
+              {
+                "width": 1024,
+                "url": "https://dashfordevs.nyc3.cdn.digitaloceanspaces.com/media/variants/fefbba552c26b0b0ebdfb63b42b3b8f8/v1/img-1024.webp"
+              }
+            ]
+          }
+        },
+        "main_size": {
+          "id": "prodsize__Sn2UcvNtgK_n3m4Y",
+          "size_display": "5g",
+          "price": "42.99",
+          "discounted_price": null,
+          "stock": 2,
+          "image": "https://dashfordevs.nyc3.cdn.digitaloceanspaces.com/media/inventory/org__jFsi6EXSayylauTO0mIOlA/products/invprod__UOFZUtUXn_rByXIuf_e7gA/sizes/prodsize__Sn2UcvNtgK_n3m4Y/HONEY_BANANA_GRAPE_MOUNTAIN.jpg"
+        },
+        "category": {
+          "id": "invcat__EcnueaJo_dXdJK3Z",
+          "name": "Disposables",
+          "slug": "vapes",
+          "parent": null
+        },
+        "categories": [
+          {
+            "id": "invcat__EcnueaJo_dXdJK3Z",
+            "name": "Disposables",
+            "slug": "vapes",
+            "parent": null
+          }
+        ],
+        "price": "42.99",
+        "discounted_price": null,
+        "in_stock": true,
+        "avg_rating": 4,
+        "reviews_count": 1,
+        "max_bulk_discount": null,
+        "custom_fields": {
+          "snippet": "htmltmpl__Yl1DyK61reXgzQ6i0ELErA"
+        },
+        "all_type_names": null,
+        "bundle_type": "",
+        "variation_param": "honey-banana-+-grape-mountain",
+        "allowed_state_ids": [],
+        "brand": {
+          "id": "brand__vWKVoe7-IU0_a-t4sq8kBg",
+          "name": "Lost THC",
+          "slug": "lost-thc",
+          "image": null,
+          "image_data": null,
+          "description": "",
+          "short_description": ""
+        },
+        "files": []
+      },
+      {
+        "id": "invprod__KL8XNjQZbne0iPbYJygeAw",
+        "name": "Lost THC 2G THCA Flawless Blend Pre-Roll 1ct",
+        "short_name": null,
+        "slug": "2g-thca-flawless-blend-pre-roll-1ct",
+        "url_slug": "2g-thca-flawless-blend-pre-roll-1ct",
+        "main_image": "https://dashfordevs.nyc3.cdn.digitaloceanspaces.com/media/inventory/org__jFsi6EXSayylauTO0mIOlA/products/invprod__KL8XNjQZbne0iPbYJygeAw/sizes/prodsize__opqYxHCm7Dss8HGb/BLUE_DREAM.webp",
+        "main_image_data": {
+          "url": "https://dashfordevs.nyc3.cdn.digitaloceanspaces.com/media/inventory/org__jFsi6EXSayylauTO0mIOlA/products/invprod__KL8XNjQZbne0iPbYJygeAw/sizes/prodsize__opqYxHCm7Dss8HGb/BLUE_DREAM.webp",
+          "lqip": "data:image/webp;base64,UklGRlwAAABXRUJQVlA4IFAAAADwAwCdASoYABgAPu1gqU6ppaQiN/qoATAdiWUAAFu1+lfmK3FTndbgAP7zdH5S2v4GnXdmDFA6yLVnVJPvn36mp1GcNPXhvjDfl4MHsAAAAA==",
+          "variants_ready": true,
+          "variants": {
+            "webp": [
+              {
+                "width": 320,
+                "url": "https://dashfordevs.nyc3.cdn.digitaloceanspaces.com/media/variants/e3f8617b5cee8e9f0a7dd465c43d9306/v1/img-320.webp"
+              },
+              {
+                "width": 640,
+                "url": "https://dashfordevs.nyc3.cdn.digitaloceanspaces.com/media/variants/e3f8617b5cee8e9f0a7dd465c43d9306/v1/img-640.webp"
+              },
+              {
+                "width": 1024,
+                "url": "https://dashfordevs.nyc3.cdn.digitaloceanspaces.com/media/variants/e3f8617b5cee8e9f0a7dd465c43d9306/v1/img-1024.webp"
+              }
+            ]
+          }
+        },
+        "main_size": {
+          "id": "prodsize__opqYxHCm7Dss8HGb",
+          "size_display": "2g",
+          "price": "7.99",
+          "discounted_price": null,
+          "stock": 473,
+          "image": "https://dashfordevs.nyc3.cdn.digitaloceanspaces.com/media/inventory/org__jFsi6EXSayylauTO0mIOlA/products/invprod__KL8XNjQZbne0iPbYJygeAw/sizes/prodsize__opqYxHCm7Dss8HGb/BLUE_DREAM.webp"
+        },
+        "category": {
+          "id": "invcat__Ec19oWwVT-U3JGA4",
+          "name": "Pre-rolls",
+          "slug": "pre-rolls",
+          "parent": null
+        },
+        "categories": [
+          {
+            "id": "invcat__Ec19oWwVT-U3JGA4",
+            "name": "Pre-rolls",
+            "slug": "pre-rolls",
+            "parent": null
+          }
+        ],
+        "price": "7.99",
+        "discounted_price": null,
+        "in_stock": true,
+        "avg_rating": 0,
+        "reviews_count": 0,
+        "max_bulk_discount": null,
+        "custom_fields": {},
+        "all_type_names": null,
+        "bundle_type": "",
+        "variation_param": "blue-dream-3",
+        "allowed_state_ids": [],
+        "brand": {
+          "id": "brand__vWKVoe7-IU0_a-t4sq8kBg",
+          "name": "Lost THC",
+          "slug": "lost-thc",
+          "image": null,
+          "image_data": null,
+          "description": "",
+          "short_description": ""
+        },
+        "files": []
+      }
+    ]
+  }
+}

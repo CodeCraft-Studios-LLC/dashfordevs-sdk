@@ -1,0 +1,29 @@
+{
+  "products": [
+    {
+      "id": "invprod__UOFZUtUXn_rByXIuf_e7gA",
+      "name": "Lost THC 5G THCP Switch Disposable",
+      "slug": "5g-thcp-switch-disposable",
+      "image": "https://dashfordevs.nyc3.cdn.digitaloceanspaces.com/media/inventory/org__jFsi6EXSayylauTO0mIOlA/products/invprod__UOFZUtUXn_rByXIuf_e7gA/sizes/prodsize__Sn2UcvNtgK_n3m4Y/HONEY_BANANA_GRAPE_MOUNTAIN.jpg",
+      "variation_count": 10,
+      "active": true
+    },
+    {
+      "id": "invprod__XnKdL1_HTghEmWWrOw6gRQ",
+      "name": "THCA Diamond Pre-Roll - Sauce Infused 2ct",
+      "slug": "thca-diamond-pre-roll-sauce-infused-2-pack",
+      "image": "https://dashfordevs.nyc3.cdn.digitaloceanspaces.com/media/inventory/org__jFsi6EXSayylauTO0mIOlA/products/invprod__XnKdL1_HTghEmWWrOw6gRQ/main/lost-thc-strawberry-nightmare-pre-roll_17645546.webp",
+      "variation_count": 9,
+      "active": false
+    },
+    {
+      "id": "invprod__Aum3KK9mKHlveQL4bMGeMw",
+      "name": "THCP Diamond Infused Pre-Roll (2ct)",
+      "slug": "thcp-diamond-infused-pre-roll-2ct",
+      "image": "https://dashfordevs.nyc3.cdn.digitaloceanspaces.com/media/inventory/org__jFsi6EXSayylauTO0mIOlA/products/invprod__Aum3KK9mKHlveQL4bMGeMw/main/Pineapple-fruz-thcp-pre-rolls_lost_Thc_17644857.webp",
+      "variation_count": 10,
+      "active": false
+    }
+  ],
+  "total_products": 29
+}

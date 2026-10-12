@@ -1,0 +1,130 @@
+{
+  "name": "dash4devs",
+  "version": "0.2.0",
+  "description": "Storefront SDK for DashForDevs (www.dashfordevs.com) by CodeCraft Studios - products, cart, checkout, content and accounts for any website. Works with api.dashfordevs.com and papi.dashfordevs.com.",
+  "type": "module",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "default": "./dist/index.js"
+    },
+    "./react": {
+      "types": "./dist/react/index.d.ts",
+      "import": "./dist/react/index.js",
+      "default": "./dist/react/index.js"
+    },
+    "./react/DashImage": {
+      "types": "./dist/react/DashImage.d.ts",
+      "import": "./dist/react/DashImage.js",
+      "default": "./dist/react/DashImage.js"
+    },
+    "./utils": {
+      "types": "./dist/utils/index.d.ts",
+      "import": "./dist/utils/index.js",
+      "default": "./dist/utils/index.js"
+    },
+    "./storage": {
+      "types": "./dist/storage/index.d.ts",
+      "import": "./dist/storage/index.js",
+      "default": "./dist/storage/index.js"
+    },
+    "./security": {
+      "types": "./dist/security/index.d.ts",
+      "import": "./dist/security/index.js",
+      "default": "./dist/security/index.js"
+    },
+    "./processors": {
+      "types": "./dist/processors/index.d.ts",
+      "import": "./dist/processors/index.js",
+      "default": "./dist/processors/index.js"
+    },
+    "./styles/*": "./dist/styles/*",
+    "./package.json": "./package.json"
+  },
+  "bin": {
+    "dash4devs": "./dist/cli/bin.js"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "CHANGELOG.md",
+    "MIGRATION.md",
+    "LICENSE"
+  ],
+  "sideEffects": [
+    "./dist/styles/*.css"
+  ],
+  "scripts": {
+    "sync-version": "node scripts/sync-version.mjs",
+    "clean": "node scripts/clean.mjs",
+    "build": "npm run sync-version && npm run clean && tsc -p tsconfig.build.json && node scripts/copy-assets.mjs",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "lint": "eslint src test scripts",
+    "test": "vitest run",
+    "test:types": "tsc -p test/types/tsconfig.json",
+    "test:all": "npm run typecheck && npm run lint && npm run build && npm test && npm run test:types",
+    "surface": "node scripts/surface-diff.mjs",
+    "fixtures:capture": "node scripts/capture-fixtures.mjs",
+    "papi:diff": "node scripts/papi-diff.mjs",
+    "pack:check": "npm pack --dry-run"
+  },
+  "dependencies": {
+    "boxen": "^7.1.1",
+    "chalk": "^5.3.0",
+    "cli-progress": "^3.12.0",
+    "ora": "^8.0.1"
+  },
+  "peerDependencies": {
+    "posthog-js": ">=1.0.0",
+    "react": ">=17.0.0"
+  },
+  "peerDependenciesMeta": {
+    "posthog-js": {
+      "optional": true
+    },
+    "react": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "@eslint/js": "9.13.0",
+    "@types/node": "22.9.0",
+    "@types/react": "18.3.12",
+    "@types/react-dom": "18.3.1",
+    "eslint": "9.13.0",
+    "jsdom": "25.0.1",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
+    "typescript": "5.6.3",
+    "typescript-eslint": "8.12.2",
+    "vitest": "2.1.4"
+  },
+  "keywords": [
+    "dashfordevs",
+    "dash4devs",
+    "ecommerce",
+    "sdk",
+    "storefront",
+    "headless-commerce",
+    "nextjs",
+    "react"
+  ],
+  "author": {
+    "name": "John Molina",
+    "email": "johnmolina@codecraftstudios.net",
+    "url": "https://www.codecraftstudios.net"
+  },
+  "license": "MIT",
+  "homepage": "https://dashfordevs.com",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "publishConfig": {
+    "access": "public",
+    "tag": "next"
+  }
+}

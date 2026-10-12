@@ -1,0 +1,39 @@
+{
+  "global": {
+    "store_name": "Lost THC",
+    "store_description": null,
+    "logo": "https://dashfordevs.nyc3.cdn.digitaloceanspaces.com/media/organizations/org__jFsi6EXSayylauTO0mIOlA/assets/logo_images/favicon.ico",
+    "business_email": "<redacted-email>",
+    "business_phone": null,
+    "website": "https://www.lostthc.com",
+    "address": "4195 Middle Country Road Suite 7",
+    "city": "CALVERTON",
+    "zip_code": "11933",
+    "state": {
+      "id": "state__DMXG37k0wXU",
+      "name": "New York",
+      "code": "NY"
+    },
+    "business_type": {
+      "id": "orgtype__07iChrhKyMk",
+      "name": "LLC"
+    },
+    "industry": {
+      "id": "industry__HmPbNABlpD0",
+      "name": "Restricted - Hemp"
+    },
+    "min_for_free_shipping": "95.00",
+    "shipping_rate": "0.00",
+    "currency": "USD",
+    "block_all_media": false,
+    "initial_discount_amount": "10.00",
+    "match_shipping_billing_address": true,
+    "maintenance_mode": false,
+    "subscription_discount": {
+      "min": "10.00",
+      "max": "15.00"
+    },
+    "loyalty_display_mode": "points",
+    "points_per_currency_unit": null
+  }
+}

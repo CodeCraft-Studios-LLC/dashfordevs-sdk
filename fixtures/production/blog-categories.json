@@ -1,0 +1,28 @@
+{
+  "categories": [
+    {
+      "id": "blogcat__rcj89azDJaZWQI9Z",
+      "name": "About Our Products",
+      "slug": "about-our-products",
+      "description": "",
+      "color": "#6366f1",
+      "post_count": 20
+    },
+    {
+      "id": "blogcat___OHU_cAITBmrKXxU",
+      "name": "Faq",
+      "slug": "FAQ",
+      "description": "",
+      "color": "#6366f1",
+      "post_count": 17
+    },
+    {
+      "id": "blogcat__UxH8mWO5IyCNbr3l",
+      "name": "News",
+      "slug": "News",
+      "description": "",
+      "color": "#6366f1",
+      "post_count": 5
+    }
+  ]
+}

@@ -1,0 +1,207 @@
+{
+  "brand": {
+    "id": "brand__vWKVoe7-IU0_a-t4sq8kBg",
+    "name": "Lost THC",
+    "slug": "lost-thc",
+    "image": null,
+    "image_data": null,
+    "hero_image": null,
+    "hero_image_data": null,
+    "hero_image_mobile": null,
+    "hero_image_mobile_data": null,
+    "description": "",
+    "short_description": "",
+    "seo_title": "",
+    "seo_description": "",
+    "seo_keywords": "",
+    "og_image": null,
+    "custom_fields": {}
+  },
+  "products": [
+    {
+      "id": "invprod__Tmgb8NOtu4sUCH8V5RhW1A",
+      "name": "Lost THC Delta 9 Gummies 25mg",
+      "short_name": null,
+      "slug": "delta-9-gummies",
+      "url_slug": "delta-9-gummies",
+      "main_image": "https://dashfordevs.nyc3.cdn.digitaloceanspaces.com/media/inventory/org__jFsi6EXSayylauTO0mIOlA/products/invprod__Tmgb8NOtu4sUCH8V5RhW1A/sizes/prodsize__ytWyMBf0iJrSn0sk/blue-raspberry-10ct-8e56ad27.png",
+      "main_image_data": {
+        "url": "https://dashfordevs.nyc3.cdn.digitaloceanspaces.com/media/inventory/org__jFsi6EXSayylauTO0mIOlA/products/invprod__Tmgb8NOtu4sUCH8V5RhW1A/sizes/prodsize__ytWyMBf0iJrSn0sk/blue-raspberry-10ct-8e56ad27.png",
+        "lqip": "data:image/webp;base64,UklGRr4AAABXRUJQVlA4ILIAAAAQBQCdASoYABgAPuVgpk6pJiOiN+gBIByJZQAEQg8m7EQeWsK5gSW+9AtAJ8VGJYAAAP7za/rsusn7sqOfMt9zdlqgEcAPE8WAg/DYRup8LtSaQnISh70M6Mu6UenQB4+8+t1rhHNuEv6UzJzc6aAwkyCf80lEo/X5vVvn0LDPg5Ttw9oqbhK14KsY+hs/NBHbduYCKHRXme0FddUWM9vo00o2UTGrNK8/hLUfxRSYAAAA",
+        "variants_ready": true,
+        "variants": {
+          "webp": [
+            {
+              "width": 320,
+              "url": "https://dashfordevs.nyc3.cdn.digitaloceanspaces.com/media/variants/723976e86ab202e81be3c698b35ee679/v1/img-320.webp"
+            },
+            {
+              "width": 640,
+              "url": "https://dashfordevs.nyc3.cdn.digitaloceanspaces.com/media/variants/723976e86ab202e81be3c698b35ee679/v1/img-640.webp"
+            },
+            {
+              "width": 1024,
+              "url": "https://dashfordevs.nyc3.cdn.digitaloceanspaces.com/media/variants/723976e86ab202e81be3c698b35ee679/v1/img-1024.webp"
+            }
+          ]
+        }
+      },
+      "main_size": {
+        "id": "prodsize__ytWyMBf0iJrSn0sk",
+        "size_display": "10ct",
+        "price": "29.99",
+        "discounted_price": null,
+        "stock": 0,
+        "image": "https://dashfordevs.nyc3.cdn.digitaloceanspaces.com/media/inventory/org__jFsi6EXSayylauTO0mIOlA/products/invprod__Tmgb8NOtu4sUCH8V5RhW1A/sizes/prodsize__ytWyMBf0iJrSn0sk/blue-raspberry-10ct-8e56ad27.png"
+      },
+      "category": {
+        "id": "invcat__pqTXFP-xyhKMZvZh",
+        "name": "Gummies",
+        "slug": "thc-gummies",
+        "parent": null
+      },
+      "categories": [
+        {
+          "id": "invcat__pqTXFP-xyhKMZvZh",
+          "name": "Gummies",
+          "slug": "thc-gummies",
+          "parent": null
+        }
+      ],
+      "price": "29.99",
+      "discounted_price": null,
+      "in_stock": false,
+      "avg_rating": 0,
+      "reviews_count": 0,
+      "max_bulk_discount": null,
+      "custom_fields": {
+        "popular": true
+      },
+      "all_type_names": null,
+      "bundle_type": "",
+      "variation_param": "blue-raspberry-4",
+      "allowed_state_ids": [],
+      "brand": {
+        "id": "brand__vWKVoe7-IU0_a-t4sq8kBg",
+        "name": "Lost THC",
+        "slug": "lost-thc",
+        "image": null,
+        "image_data": null,
+        "description": "",
+        "short_description": ""
+      },
+      "files": [
+        {
+          "id": "pfile__Kst0gw8NHJpRcQ",
+          "url": "https://dashfordevs.nyc3.cdn.digitaloceanspaces.com/media/inventory/org__jFsi6EXSayylauTO0mIOlA/products/invprod__Tmgb8NOtu4sUCH8V5RhW1A/files/260911q010-002-coa-faf49bf7.pdf",
+          "label": "Lab Report",
+          "name": "260911Q010-002 CoA.pdf",
+          "order": 0
+        },
+        {
+          "id": "pfile__jrxRhlgfHM2LQQ",
+          "url": "https://dashfordevs.nyc3.cdn.digitaloceanspaces.com/media/inventory/org__jFsi6EXSayylauTO0mIOlA/products/invprod__Tmgb8NOtu4sUCH8V5RhW1A/files/260911q011-002-coa-ca14f2fa.pdf",
+          "label": "Lab Report",
+          "name": "260911Q011-002 CoA.pdf",
+          "order": 0
+        },
+        {
+          "id": "pfile__u7p9DBYfJDkpnw",
+          "url": "https://dashfordevs.nyc3.cdn.digitaloceanspaces.com/media/inventory/org__jFsi6EXSayylauTO0mIOlA/products/invprod__Tmgb8NOtu4sUCH8V5RhW1A/files/260911q012-002-coa-f77742be.pdf",
+          "label": "Lab Report",
+          "name": "260911Q012-002 CoA.pdf",
+          "order": 0
+        }
+      ],
+      "subscription_savings": {
+        "min": 10,
+        "max": 15
+      }
+    },
+    {
+      "id": "invprod__ixEeGTFBSGqe_WKqYsVWig",
+      "name": "Lost THC 8G THCA Disposable V2",
+      "short_name": null,
+      "slug": "8g-thca-disposable-vape-v2",
+      "url_slug": "8g-thca-disposable-vape-v2",
+      "main_image": "https://dashfordevs.nyc3.cdn.digitaloceanspaces.com/media/inventory/org__jFsi6EXSayylauTO0mIOlA/products/invprod__ixEeGTFBSGqe_WKqYsVWig/sizes/prodsize__UiiTB4m1_2pOYsHU/Copy_of_RS11_X_BANANA_OG.jpg",
+      "main_image_data": {
+        "url": "https://dashfordevs.nyc3.cdn.digitaloceanspaces.com/media/inventory/org__jFsi6EXSayylauTO0mIOlA/products/invprod__ixEeGTFBSGqe_WKqYsVWig/sizes/prodsize__UiiTB4m1_2pOYsHU/Copy_of_RS11_X_BANANA_OG.jpg",
+        "lqip": "data:image/webp;base64,UklGRqQAAABXRUJQVlA4IJgAAAAwBACdASoYABgAPwFwslIrJiSiqAqpYCAJZgDLLBEc5cis8UANcmjC/AAA/t6Hc4MRYa75XiIDok1UpnY6cXTs+vq8+OOJgFcjFrO6gIo7mS8gjSwgErqMgUsoFpzK2SL/O5WEhEAJqg1iQkODY1RoxdGlgPf5y1NvnwceLHz0vJL2uGvKNBirB7GCjj8aE0PNf9+iNwkYAA==",
+        "variants_ready": true,
+        "variants": {
+          "webp": [
+            {
+              "width": 320,
+              "url": "https://dashfordevs.nyc3.cdn.digitaloceanspaces.com/media/variants/d14bdb120e93828a98a29f65a1c4ae38/v1/img-320.webp"
+            },
+            {
+              "width": 640,
+              "url": "https://dashfordevs.nyc3.cdn.digitaloceanspaces.com/media/variants/d14bdb120e93828a98a29f65a1c4ae38/v1/img-640.webp"
+            },
+            {
+              "width": 1024,
+              "url": "https://dashfordevs.nyc3.cdn.digitaloceanspaces.com/media/variants/d14bdb120e93828a98a29f65a1c4ae38/v1/img-1024.webp"
+            }
+          ]
+        }
+      },
+      "main_size": {
+        "id": "prodsize__UiiTB4m1_2pOYsHU",
+        "size_display": "8g",
+        "price": "45.99",
+        "discounted_price": null,
+        "stock": 43,
+        "image": "https://dashfordevs.nyc3.cdn.digitaloceanspaces.com/media/inventory/org__jFsi6EXSayylauTO0mIOlA/products/invprod__ixEeGTFBSGqe_WKqYsVWig/sizes/prodsize__UiiTB4m1_2pOYsHU/Copy_of_RS11_X_BANANA_OG.jpg"
+      },
+      "category": {
+        "id": "invcat__EcnueaJo_dXdJK3Z",
+        "name": "Disposables",
+        "slug": "vapes",
+        "parent": null
+      },
+      "categories": [
+        {
+          "id": "invcat__EcnueaJo_dXdJK3Z",
+          "name": "Disposables",
+          "slug": "vapes",
+          "parent": null
+        }
+      ],
+      "price": "45.99",
+      "discounted_price": null,
+      "in_stock": true,
+      "avg_rating": 4.9,
+      "reviews_count": 7,
+      "max_bulk_discount": null,
+      "custom_fields": {
+        "popular": true,
+        "snippet": "htmltmpl__TPCme_LS-CDuJYyh16I_Zw"
+      },
+      "all_type_names": "Indica +2",
+      "bundle_type": "",
+      "variation_param": "rs11-x-banana-og-1",
+      "allowed_state_ids": [],
+      "brand": {
+        "id": "brand__vWKVoe7-IU0_a-t4sq8kBg",
+        "name": "Lost THC",
+        "slug": "lost-thc",
+        "image": null,
+        "image_data": null,
+        "description": "",
+        "short_description": ""
+      },
+      "files": [],
+      "subscription_savings": {
+        "min": 10,
+        "max": 15
+      }
+    }
+  ],
+  "pagination": {
+    "total": 31,
+    "limit": 2,
+    "offset": 0,
+    "has_more": true
+  }
+}

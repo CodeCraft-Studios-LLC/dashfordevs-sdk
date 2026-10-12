@@ -1,0 +1,31 @@
+{
+  "reviews": [
+    {
+      "id": "review__tjbTT7bW-d0PHVrRqg8",
+      "rating": 5,
+      "title": "Hits Hard",
+      "body": "Saw them on youtube and decided to give them a try.  I didn't have high expectation, but wow, I will 100% be ordering again. This vape hits and the taste was pleasant from start to finish.",
+      "author_name": "Customer 1",
+      "is_anonymous": false,
+      "verified_purchase": false,
+      "created_at": "2026-10-06T02:16:44.991149+00:00",
+      "variation_name": "Nectarine Jelly",
+      "variation_slug": "nectarine-jelly",
+      "media": [
+        {
+          "id": "rmedia__ndK_8GrE7eYKIA",
+          "file_url": "https://dashfordevs.nyc3.cdn.digitaloceanspaces.com/media/product_review_files/lostthc-7g-v2-nectarine-jelly-logan-xavier.jpeg",
+          "file_type": "image"
+        }
+      ]
+    }
+  ],
+  "avg_rating": 5,
+  "total": 1,
+  "pagination": {
+    "total": 1,
+    "limit": 2,
+    "offset": 0,
+    "has_more": false
+  }
+}

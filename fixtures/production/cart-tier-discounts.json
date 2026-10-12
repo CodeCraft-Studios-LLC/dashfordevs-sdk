@@ -1,0 +1,18 @@
+{
+  "tiers": [
+    {
+      "id": "carttier__YQz9joUhSudOVzo5",
+      "name": "Spend $150 -> 20% OFF",
+      "min_subtotal": "150.00",
+      "discount_percentage": "20.00",
+      "display_order": 0
+    },
+    {
+      "id": "carttier__tYo5CtaedphoReAO",
+      "name": "Spend $300 -> 30%",
+      "min_subtotal": "300.00",
+      "discount_percentage": "30.00",
+      "display_order": 0
+    }
+  ]
+}

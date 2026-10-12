@@ -1,0 +1,50 @@
+{
+  "reviews": [
+    {
+      "id": "review__tjbTT7bW-d0PHVrRqg8",
+      "rating": 5,
+      "title": "Hits Hard",
+      "body": "Saw them on youtube and decided to give them a try.  I didn't have high expectation, but wow, I will 100% be ordering again. This vape hits and the taste was pleasant from start to finish.",
+      "author_name": "Customer 1",
+      "is_anonymous": false,
+      "verified_purchase": false,
+      "created_at": "2026-10-06T02:16:44.991149+00:00",
+      "product_name": "Lost THC 7G THCA Flawless Rosin Blend Disposable V2",
+      "product_slug": "7g-flawless-rosin-blend-disposable-v2",
+      "product_image": null,
+      "variation_name": "Nectarine Jelly",
+      "variation_slug": "nectarine-jelly",
+      "media": [
+        {
+          "id": "rmedia__ndK_8GrE7eYKIA",
+          "file_url": "https://dashfordevs.nyc3.cdn.digitaloceanspaces.com/media/product_review_files/lostthc-7g-v2-nectarine-jelly-logan-xavier.jpeg",
+          "file_type": "image"
+        }
+      ]
+    },
+    {
+      "id": "review__sl_varjAJAqYxJ4wRcs",
+      "rating": 5,
+      "title": "First Lost THC",
+      "body": "Excellent vapes. Easy to use. Delivered fast!  Hits hard",
+      "author_name": "Customer 2",
+      "is_anonymous": false,
+      "verified_purchase": true,
+      "created_at": "2026-10-05T18:30:42.956481+00:00",
+      "product_name": "Lost THC 8G THCA Disposable V2",
+      "product_slug": "8g-thca-disposable-vape-v2",
+      "product_image": null,
+      "variation_name": "Blueberry Diesel",
+      "variation_slug": "blueberry-diesel-3",
+      "media": []
+    }
+  ],
+  "avg_rating": 4.9,
+  "total": 22,
+  "pagination": {
+    "total": 22,
+    "limit": 2,
+    "offset": 0,
+    "has_more": true
+  }
+}
