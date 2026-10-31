@@ -62,6 +62,7 @@
     "sync-version": "node scripts/sync-version.mjs",
     "clean": "node scripts/clean.mjs",
     "build": "npm run sync-version && npm run clean && tsc -p tsconfig.build.json && node scripts/copy-assets.mjs",
+    "prepare": "npm run build",
     "typecheck": "tsc -p tsconfig.json --noEmit",
     "lint": "eslint src test scripts",
     "test": "vitest run",
