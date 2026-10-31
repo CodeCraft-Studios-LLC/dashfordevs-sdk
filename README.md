@@ -10,7 +10,7 @@ the package keeps working and keeps talking to the same API. See [MIGRATION.md](
 the few intentional differences (all privacy or bug fixes) and [CHANGELOG.md](CHANGELOG.md).
 
 ```bash
-npm install dash4devs        # once published; replaces "github:CodeCraftStudios/dash4devs-sdk"
+npm install github:CodeCraftStudios/dash4devs-sdk#v0.2.0   # installed from GitHub (no npm); builds on install
 ```
 
 ```ts
