@@ -1,7 +1,7 @@
 // Compare papi.dashfordevs.com with production, structurally, using the
 // production fixtures as the reference.
 //
-//   node scripts/papi-diff.mjs --key-from <file> [--key-prefix pk_test_] [--host papi.dashfordevs.com]
+//   node scripts/papi-diff.mjs --key-from <file> [--key-prefix pk_test_] [--host papi.dashfordevs.com] [--origin https://store.example]
 //
 // For every endpoint in fixtures/production/manifest.json it sends the same
 // read-only GET to papi and reports:
@@ -64,7 +64,9 @@ function shapeDiff(prod, papi, at = "", out = { missing: [], changed: [], added:
 async function get(p, key) {
   const url = new URL(p, `https://${host}`);
   try {
-    const res = await fetch(url, { method: "GET", headers: { "X-API-Key": key, Accept: "application/json" }, redirect: "manual" });
+    // A live pk_ key is only accepted from the store's allowed origins (production's rule): --origin sends one.
+    const headers = { "X-API-Key": key, Accept: "application/json", ...(args.origin ? { Origin: args.origin } : {}) };
+    const res = await fetch(url, { method: "GET", headers, redirect: "manual" });
     const text = await res.text();
     let json = null;
     try {
