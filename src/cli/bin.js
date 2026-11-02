@@ -7,6 +7,7 @@
  *   dash4devs build           Build Next.js app and upload static assets to CDN
  *   dash4devs deploy          Alias for build + activate
  *   dash4devs status          Show current active deployment
+ *   dash4devs media           Size media/ into public/_media for DashImage/DashVideo
  *   dash4devs purge <paths>   Invalidate edge cache for one or more paths
  *   dash4devs rollback <id>   Activate a previous deployment
  *
@@ -24,6 +25,7 @@ process.on("warning", () => {});
 import { run as runBuild } from "./commands/build.js";
 import { run as runStatus } from "./commands/status.js";
 import { run as runInit } from "./commands/init.js";
+import { run as runMedia } from "./commands/media.js";
 import { printBanner, printError } from "./ui.js";
 
 const COMMANDS = {
@@ -31,6 +33,7 @@ const COMMANDS = {
   build: runBuild,
   deploy: runBuild, // alias, activates by default
   status: runStatus,
+  media: runMedia,
 };
 
 async function main() {
@@ -46,6 +49,7 @@ Commands:
   build                 Build Next.js and upload static assets
   deploy                Build + activate in one step
   status                Show active deployment for this org
+  media                 Size the site's own images/videos (media.config.mjs)
 
 Environment:
   DASH4DEVS_API_KEY     Secret key (sk_*) for your organization

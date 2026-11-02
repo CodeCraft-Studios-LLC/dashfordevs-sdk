@@ -13,15 +13,23 @@
 import fs from "node:fs";
 import path from "node:path";
 
-const DEFAULT_API = "https://api.dashfordevs.com";
-const TARGETS = { production: "https://api.dashfordevs.com", papi: "https://papi.dashfordevs.com" };
+// The CLI, like the SDK, talks only to papi (see src/core/config.ts). The old
+// host in a store's .env is rewritten; a localhost URL is kept for a local papi.
+const DEFAULT_API = "https://papi.dashfordevs.com";
+const LOCAL_HOST = /^(localhost|127\.0\.0\.1|\[::1\]|.+\.localhost)$/i;
 
-/** "production" | "papi" -> URL; unknown values fall back to production with a warning. */
-function targetUrl(target) {
-  if (!target) return "";
-  const key = String(target).trim().toLowerCase();
-  if (TARGETS[key]) return TARGETS[key];
-  console.warn(`dash4devs: unknown DASH4DEVS_TARGET "${target}" (use production or papi); using production.`);
+function toPapi(url) {
+  if (!url) return DEFAULT_API;
+  let parsed;
+  try {
+    parsed = new URL(String(url).trim());
+  } catch {
+    return DEFAULT_API;
+  }
+  if (LOCAL_HOST.test(parsed.hostname)) return parsed.origin + parsed.pathname.replace(/\/+$/, "");
+  if (!/^(papi|api)\.dashfordevs\.com$/i.test(parsed.hostname)) {
+    console.warn(`dash4devs: ${parsed.host} is not papi; using ${DEFAULT_API}.`);
+  }
   return DEFAULT_API;
 }
 
@@ -66,13 +74,9 @@ export function loadConfig() {
   return {
     apiKey,
     // Same order as v1, then the v2 target switch: an explicit URL wins over a target.
-    apiUrl: (
-      merged.NEXT_PUBLIC_DEVDASH_API_URL ||
-      merged.DASH4DEVS_API_URL ||
-      merged.NEXT_PUBLIC_DASH4DEVS_API_URL ||
-      targetUrl(merged.DASH4DEVS_TARGET || merged.NEXT_PUBLIC_DASH4DEVS_TARGET) ||
-      DEFAULT_API
-    ).replace(/\/$/, ""),
+    apiUrl: toPapi(
+      merged.NEXT_PUBLIC_DEVDASH_API_URL || merged.DASH4DEVS_API_URL || merged.NEXT_PUBLIC_DASH4DEVS_API_URL
+    ),
     cwd,
     buildDir: merged.DASH4DEVS_BUILD_DIR || ".next",
     publicDir: merged.DASH4DEVS_PUBLIC_DIR || "public",

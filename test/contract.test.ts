@@ -15,7 +15,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import { beforeAll, describe, expect, it } from "vitest";
-import { PAPI, PROD, ROOT, loadV1, loadV2, recorder, settle, withGlobalFetch } from "./helpers";
+import { PAPI, ROOT, loadV1, loadV2, recorder, settle, withGlobalFetch } from "./helpers";
 
 const DIR = path.join(ROOT, "fixtures", "production");
 const manifest = JSON.parse(fs.readFileSync(path.join(DIR, "manifest.json"), "utf8"));
@@ -84,7 +84,7 @@ it("every captured 200 endpoint has a contract", () => {
 });
 
 for (const host of [
-  { label: "production", v2: { target: "production" }, v1: {}, base: PROD },
+  { label: "legacy production target", v2: { target: "production" }, v1: { baseURL: PAPI }, base: PAPI },
   { label: "papi", v2: { target: "papi" }, v1: { baseURL: PAPI }, base: PAPI },
 ]) {
   describe(`production response shapes through v1 and v2 (${host.label})`, () => {

@@ -23,6 +23,9 @@ export function cdnImageUrl(src: string | null | undefined, cdnBase: string = CD
   if (!s) return "";
   if (/^(https?:|data:|blob:)/i.test(s)) return s;
   if (s.startsWith("//")) return `https:${s}`;
+  // Media `dash4devs media` made from the site's own media/ folder: served by
+  // the site (public/_media), or under its asset prefix. Never the org CDN.
+  if (s.startsWith("/_media/")) return s;
   const base = cdnBase.replace(/\/+$/, "");
   return `${base}/${s.replace(/^\/+/, "")}`;
 }

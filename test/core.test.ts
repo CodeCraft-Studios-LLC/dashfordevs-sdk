@@ -16,45 +16,39 @@ afterEach(() => {
   vi.useRealTimers();
 });
 
-describe("choosing the API host", () => {
-  it("defaults to production (nothing changes for a store that only upgrades)", () => {
+describe("choosing the API host: papi only", () => {
+  it("defaults to papi", () => {
     const d = new V2.DashClient({ apiKey: "pk_test_x" });
-    expect(d.baseURL).toBe(PROD);
-    expect(d.target).toBe("production");
-  });
-
-  it('target: "papi"', () => {
-    const d = new V2.DashClient({ apiKey: "pk_test_x", target: "papi" });
     expect(d.baseURL).toBe(PAPI);
     expect(d.target).toBe("papi");
   });
 
-  it("baseURL (v1 option) wins over everything, trailing slash removed", () => {
-    process.env.DASH4DEVS_TARGET = "papi";
+  it('target: "papi" and the legacy target: "production" are both papi', () => {
+    expect(new V2.DashClient({ apiKey: "pk_test_x", target: "papi" }).baseURL).toBe(PAPI);
+    expect(new V2.DashClient({ apiKey: "pk_test_x", target: "production" }).baseURL).toBe(PAPI);
+  });
+
+  it("the old host in baseURL (a store's NEXT_PUBLIC_DEVDASH_API_URL) is rewritten to papi", () => {
+    expect(new V2.DashClient({ apiKey: "pk_test_x", baseURL: PROD }).baseURL).toBe(PAPI);
+    expect(new V2.DashClient({ apiKey: "pk_test_x", baseURL: PROD + "/" }).baseURL).toBe(PAPI);
+  });
+
+  it("a local papi is kept, trailing slash removed", () => {
     const d = new V2.DashClient({ apiKey: "pk_test_x", baseURL: "http://localhost:8000/", target: "papi" });
     expect(d.baseURL).toBe("http://localhost:8000");
     expect(d.target).toBe("custom");
   });
 
+  it("any other host is refused in favour of papi", () => {
+    const warn = vi.spyOn(console, "warn").mockImplementation(() => {});
+    process.env.DASH4DEVS_API_URL = "https://staging.example.com/";
+    expect(new V2.DashClient({ apiKey: "pk_test_x" }).baseURL).toBe(PAPI);
+    expect(new V2.DashClient({ apiKey: "pk_test_x", baseURL: "https://evil.example" }).baseURL).toBe(PAPI);
+    warn.mockRestore();
+  });
+
   it("apiBase is an alias of baseURL", () => {
     expect(new V2.DashClient({ apiKey: "pk_test_x", apiBase: PAPI + "/" }).baseURL).toBe(PAPI);
-  });
-
-  it("DASH4DEVS_TARGET=papi switches without code changes", () => {
-    process.env.DASH4DEVS_TARGET = "papi";
-    expect(new V2.DashClient({ apiKey: "pk_test_x" }).baseURL).toBe(PAPI);
-  });
-
-  it("NEXT_PUBLIC_DASH4DEVS_TARGET works too (browser bundles)", () => {
-    process.env.NEXT_PUBLIC_DASH4DEVS_TARGET = "papi";
-    expect(new V2.DashClient({ apiKey: "pk_test_x" }).baseURL).toBe(PAPI);
-  });
-
-  it("DASH4DEVS_API_URL beats DASH4DEVS_TARGET; the target option beats both", () => {
-    process.env.DASH4DEVS_API_URL = "https://staging.example.com/";
-    process.env.DASH4DEVS_TARGET = "papi";
-    expect(new V2.DashClient({ apiKey: "pk_test_x" }).baseURL).toBe("https://staging.example.com");
-    expect(new V2.DashClient({ apiKey: "pk_test_x", target: "production" }).baseURL).toBe(PROD);
   });
 
   it("an unknown target is an error, not a silent fallback", () => {
@@ -62,7 +56,7 @@ describe("choosing the API host", () => {
   });
 
   it("resolveApiBase / describeApiBase / API_TARGETS are exported", () => {
-    expect(V2.API_TARGETS).toEqual({ production: PROD, papi: PAPI });
+    expect(V2.API_TARGETS).toEqual({ production: PAPI, papi: PAPI });
     expect(V2.resolveApiBase({ target: "papi" })).toBe(PAPI);
     expect(V2.describeApiBase("http://localhost:8000")).toBe("custom");
   });
@@ -206,7 +200,7 @@ describe("transport", () => {
     const { fetchMock } = recorder(() => ({ status: 404, body: { error: "not_found", message: "nope" } }));
     const d = new V2.DashClient({ apiKey: "pk_test_x", fetch: fetchMock });
     const err = await d.checkout.resume("checkout__secret-token").catch((e: any) => e);
-    expect(err.url).toBe(`${PROD}/api/storefront/checkout/resume`);
+    expect(err.url).toBe(`${PAPI}/api/storefront/checkout/resume`);
     expect(JSON.stringify(err)).not.toContain("secret-token");
   });
 
@@ -255,7 +249,7 @@ describe("members v1 declared but did not implement (now real)", () => {
     d.auth.setTokens("a1", "r1");
     expect(d.auth.accessToken).toBe("a1");
     await d.auth.refresh();
-    expect(calls[0].url).toBe(`${PROD}/api/storefront/auth/refresh`);
+    expect(calls[0].url).toBe(`${PAPI}/api/storefront/auth/refresh`);
     expect(calls[0].body).toEqual({ refresh_token: "r1" });
     d.auth.clearTokens();
     expect(d.auth.token).toBeNull();
@@ -267,13 +261,13 @@ describe("members v1 declared but did not implement (now real)", () => {
     const { fetchMock, calls } = recorder();
     const d = new V2.DashClient({ apiKey: "pk_test_x", fetch: fetchMock });
     await d.blog.categories();
-    expect(calls[0].url).toBe(`${PROD}/api/storefront/blog/categories`);
+    expect(calls[0].url).toBe(`${PAPI}/api/storefront/blog/categories`);
   });
 
   it("products.get forwards its declared options as query parameters", async () => {
     const { fetchMock, calls } = recorder();
     const d = new V2.DashClient({ apiKey: "pk_test_x", fetch: fetchMock });
     await d.products.get("slug", { variation: "strain-a", skip: undefined });
-    expect(calls[0].url).toBe(`${PROD}/api/storefront/products/slug?variation=strain-a`);
+    expect(calls[0].url).toBe(`${PAPI}/api/storefront/products/slug?variation=strain-a`);
   });
 });

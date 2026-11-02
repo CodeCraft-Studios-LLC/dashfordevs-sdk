@@ -8,7 +8,7 @@ import fs from "node:fs";
 import os from "node:os";
 import path from "node:path";
 import { pathToFileURL } from "node:url";
-import { afterEach, describe, expect, it } from "vitest";
+import { afterEach, describe, expect, it, vi } from "vitest";
 import { ROOT } from "./helpers";
 
 const BIN = path.join(ROOT, "dist/cli/bin.js");
@@ -36,17 +36,19 @@ describe("dash4devs CLI", () => {
     for (const word of ["init", "build", "deploy", "status", "DASH4DEVS_API_URL", "DASH4DEVS_TARGET"]) expect(out).toContain(word);
   });
 
-  it("config: v1 precedence kept (NEXT_PUBLIC_DEVDASH_API_URL, then DASH4DEVS_API_URL), then target, then production", async () => {
+  it("config: papi only - the old host and other hosts become papi, a local papi is kept", async () => {
     const dir = fs.mkdtempSync(path.join(os.tmpdir(), "d4d-cli-"));
     for (const k of ENV) delete process.env[k];
     process.env.DEVDASH_SECRET_KEY = "sk_test_cli";
-    expect((await loadConfigIn(dir)).apiUrl).toBe("https://api.dashfordevs.com");
-    process.env.DASH4DEVS_TARGET = "papi";
+    const warn = vi.spyOn(console, "warn").mockImplementation(() => {});
     expect((await loadConfigIn(dir)).apiUrl).toBe("https://papi.dashfordevs.com");
     process.env.DASH4DEVS_API_URL = "https://custom.example/";
-    expect((await loadConfigIn(dir)).apiUrl).toBe("https://custom.example");
+    expect((await loadConfigIn(dir)).apiUrl).toBe("https://papi.dashfordevs.com");
+    process.env.NEXT_PUBLIC_DEVDASH_API_URL = "https://api.dashfordevs.com";
+    expect((await loadConfigIn(dir)).apiUrl).toBe("https://papi.dashfordevs.com");
     process.env.NEXT_PUBLIC_DEVDASH_API_URL = "http://localhost:8000";
     expect((await loadConfigIn(dir)).apiUrl).toBe("http://localhost:8000");
+    warn.mockRestore();
   });
 
   it("config reads .env.local like v1 and refuses public keys", async () => {

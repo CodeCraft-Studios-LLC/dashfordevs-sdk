@@ -19,6 +19,7 @@ import { createApi } from "../api.js";
 import { scanBuild } from "../scanner.js";
 import { uploadAll } from "../uploader.js";
 import { processOrgVideos } from "../video.js";
+import { buildMedia, findMediaConfig } from "../media.js";
 import {
   step,
   success,
@@ -42,6 +43,19 @@ export async function run(args) {
 
   printArt();
 
+  // The site's own media (media.config.mjs) first: the pages import the
+  // manifest it writes, so it has to exist before `next build`. Like the CDN,
+  // an optimisation - a failure keeps whatever is already in public/_media.
+  if (!skipBuild && !args.includes("--skip-media") && findMediaConfig(process.cwd())) {
+    step("Media", "media/ -> public/_media");
+    try {
+      await buildMedia(process.cwd(), { log: (line) => console.log(line) });
+      success("Media ready");
+    } catch (e) {
+      warn(`Media step failed, keeping the media already built: ${e.message}`);
+    }
+  }
+
   // The CDN upload is an OPTIMISATION, not a build requirement. When this command
   // is wired into package.json's "build" script it becomes the deploy's build
   // step, so anything thrown here fails the whole deploy and takes the site with
@@ -56,6 +70,7 @@ export async function run(args) {
     warn(`CDN upload disabled: ${e.message}`);
     warn("Falling back to a plain `next build` — the site will build and deploy,");
     warn("it just serves its static assets from the origin instead of the edge.");
+    clearAssetPrefix(process.cwd());
     await runNextBuild(process.cwd());
     success("Built (no CDN upload)");
     return;
@@ -80,19 +95,33 @@ export async function run(args) {
   // returns it without needing a prior deploy, so we can just ask up front and
   // build with it baked in. Build-time and runtime then agree.
   let assetPrefix = null;
+  // papi answers 404 for /api/v1/cdn/* until the asset CDN service exists.
+  // That is not a failure: the site builds and serves its own assets.
+  let cdnAvailable = true;
   if (!skipBuild) {
     try {
       const status = await api.status();
       assetPrefix = status.asset_prefix || null;
     } catch (e) {
-      warn(`Could not resolve the CDN asset prefix: ${e.message}`);
-      warn("Building without it — assets will serve from the origin.");
+      if (e.status === 404) {
+        cdnAvailable = false;
+        step("Asset CDN", chalk.dim("not offered by papi yet - assets serve from the site itself"));
+      } else {
+        warn(`Could not resolve the CDN asset prefix: ${e.message}`);
+        warn("Building without it — assets will serve from the origin.");
+      }
     }
   }
 
   if (assetPrefix) {
     writeAssetPrefix(cfg.cwd, assetPrefix);
     step("Asset prefix", chalk.dim(assetPrefix));
+  } else if (!skipBuild) {
+    // No prefix from papi: drop any left in .env.production (a site moved
+    // from the old platform still names its CDN there). `next build` reads
+    // that file itself, and HTML naming chunks a CDN never received renders
+    // but never hydrates.
+    clearAssetPrefix(cfg.cwd);
   }
 
   if (!skipBuild) {
@@ -113,6 +142,11 @@ export async function run(args) {
   // built HTML points at chunks that aren't on the edge — a broken site, which is
   // worse than no CDN at all. So in that case, rebuild without the prefix and let
   // the origin serve the assets.
+  if (!cdnAvailable) {
+    printSummary([chalk.bold.green("Build successful"), "", "Assets serve from the site (no asset CDN on papi yet)."]);
+    return;
+  }
+
   try {
     await uploadToEdge({ cfg, api, dryRun, noActivate, noMedia, noVideo, forceVideo });
   } catch (e) {

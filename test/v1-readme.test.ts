@@ -64,7 +64,7 @@ describe("v1 README examples run the same on v2", () => {
   for (const [name, run] of Object.entries(examples)) {
     it(name, async () => {
       const r1 = recorder();
-      const out1 = await withGlobalFetch(r1.fetchMock, () => run(new V1.DashClient({ apiKey: "pk_test_readme" }), new Map()));
+      const out1 = await withGlobalFetch(r1.fetchMock, () => run(new V1.DashClient({ apiKey: "pk_test_readme", baseURL: "https://papi.dashfordevs.com" }), new Map()));
       const r2 = recorder();
       const out2 = await run(new V2.DashClient({ apiKey: "pk_test_readme", fetch: r2.fetchMock }), new Map());
       expect(r2.calls).toEqual(r1.calls);
@@ -76,7 +76,7 @@ describe("v1 README examples run the same on v2", () => {
   it("Error Handling: message and status as v1; error.code as the README promised", async () => {
     const body = { error: "not_found", message: "Product not found" };
     const r1 = recorder(() => ({ status: 404, body }));
-    const e1 = await withGlobalFetch(r1.fetchMock, () => new V1.DashClient({ apiKey: "pk_test_readme" }).products.get("non-existent").catch((e: any) => e));
+    const e1 = await withGlobalFetch(r1.fetchMock, () => new V1.DashClient({ apiKey: "pk_test_readme", baseURL: "https://papi.dashfordevs.com" }).products.get("non-existent").catch((e: any) => e));
     const r2 = recorder(() => ({ status: 404, body }));
     const e2 = await new V2.DashClient({ apiKey: "pk_test_readme", fetch: r2.fetchMock }).products.get("non-existent").catch((e: any) => e);
     expect([e2.message, e2.status]).toEqual([e1.message, e1.status]);

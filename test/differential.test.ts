@@ -349,8 +349,8 @@ async function runOnce(mod: any, opts: any, s: Scenario) {
 }
 
 for (const host of [
-  { label: "production", v1: (key: string) => ({ apiKey: key }), v2: (key: string) => ({ apiKey: key }), base: PROD },
-  { label: "papi", v1: (key: string) => ({ apiKey: key, baseURL: PAPI }), v2: (key: string) => ({ apiKey: key, target: "papi" }), base: PAPI },
+  { label: "default", v1: (key: string) => ({ apiKey: key, baseURL: PAPI }), v2: (key: string) => ({ apiKey: key }), base: PAPI },
+  { label: "old host rewritten", v1: (key: string) => ({ apiKey: key, baseURL: PAPI }), v2: (key: string) => ({ apiKey: key, baseURL: PROD }), base: PAPI },
 ]) {
   describe(`v1 and v2 send the same requests (${host.label})`, () => {
     for (const s of SCENARIOS) {
@@ -399,7 +399,8 @@ it("scenario count covers the v1 runtime surface", () => {
 
 it("the comparison detects a divergence (self-check)", async () => {
   const s = SCENARIOS.find((x) => x.name === "products.list(all options)")!;
-  const a = await runOnce(V1, { apiKey: "pk_test_x", baseURL: PAPI }, s);
+  // v1 left on the old host; v2 goes to papi, so the recorded calls differ.
+  const a = await runOnce(V1, { apiKey: "pk_test_x" }, s);
   const b = await runOnce(V2, { apiKey: "pk_test_x" }, s);
   expect(b.calls).not.toEqual(a.calls);
 });

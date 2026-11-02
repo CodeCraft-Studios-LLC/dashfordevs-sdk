@@ -1,35 +1,36 @@
 /**
- * Which DashForDevs API host the client talks to.
+ * Which DashForDevs API host the client talks to: papi, always.
  *
- * Two hosts serve the same public storefront API (same paths, methods, auth,
- * request and response shapes):
+ *   papi  https://papi.dashfordevs.com   the DashForDevs public API
  *
- *   production  https://api.dashfordevs.com    the current platform (default)
- *   papi        https://papi.dashfordevs.com   the rebuilt public API
+ * Since 2.1 the SDK talks only to papi. Settings written for 0.1.x and 2.0
+ * still work and still decide nothing else:
  *
- * One setting chooses between them. In order, the first that is set wins:
+ *   - `target: "production"` (and DASH4DEVS_TARGET=production) means papi.
+ *   - a base URL on api.dashfordevs.com (the old host, as most stores have in
+ *     NEXT_PUBLIC_DEVDASH_API_URL) is rewritten to papi, path kept.
+ *   - a base URL on localhost / 127.0.0.1 / *.localhost is kept, for running
+ *     against a papi on your own machine.
+ *   - any other base URL is ignored, with a warning, and papi is used.
  *
- *   1. `baseURL` option         (v1's option; any URL, e.g. a local backend)
- *   2. `apiBase` option         (alias of baseURL)
- *   3. `target` option          ("production" | "papi")
- *   4. DASH4DEVS_API_URL / NEXT_PUBLIC_DASH4DEVS_API_URL   (env, any URL)
- *   5. DASH4DEVS_TARGET  / NEXT_PUBLIC_DASH4DEVS_TARGET    (env, "production" | "papi")
- *   6. production
- *
- * So a store that only upgrades the package keeps talking to production, and
- * moving to papi is one option or one environment variable.
+ * In order, the first that is set is considered: `baseURL`, `apiBase`,
+ * `target`, DASH4DEVS_API_URL / NEXT_PUBLIC_DASH4DEVS_API_URL,
+ * DASH4DEVS_TARGET / NEXT_PUBLIC_DASH4DEVS_TARGET, then papi.
  */
 
 import { readEnv } from "./env.js";
 
+/** "production" is kept as a name for compatibility; it is papi. */
 export type ApiTarget = "production" | "papi";
 
+export const PAPI_BASE = "https://papi.dashfordevs.com";
+
 export const API_TARGETS: Readonly<Record<ApiTarget, string>> = Object.freeze({
-  production: "https://api.dashfordevs.com",
-  papi: "https://papi.dashfordevs.com",
+  production: PAPI_BASE,
+  papi: PAPI_BASE,
 });
 
-export const DEFAULT_API_BASE = API_TARGETS.production;
+export const DEFAULT_API_BASE = PAPI_BASE;
 
 /** The DashForDevs image CDN. Media served by papi lives under /content/. */
 export const CDN_BASE = "https://cdn.dashfordevs.com";
@@ -44,13 +45,40 @@ function stripSlash(url: string): string {
   return url.replace(/\/+$/, "");
 }
 
+const LOCAL_HOST = /^(localhost|127\.0\.0\.1|\[::1\]|.+\.localhost)$/i;
+const OLD_HOST = /^api\.dashfordevs\.com$/i;
+const warned = new Set<string>();
+
+/**
+ * Any configured URL, as the URL the SDK will actually use: papi, or a local
+ * papi. Never another host.
+ */
+export function toPapi(url: string): string {
+  const clean = stripSlash(url.trim());
+  let parsed: URL;
+  try {
+    parsed = new URL(clean);
+  } catch {
+    return PAPI_BASE;
+  }
+  if (LOCAL_HOST.test(parsed.hostname)) return clean;
+  if (parsed.hostname.toLowerCase() === "papi.dashfordevs.com") return stripSlash(`${PAPI_BASE}${parsed.pathname}`);
+  if (OLD_HOST.test(parsed.hostname)) return stripSlash(`${PAPI_BASE}${parsed.pathname}`);
+  if (!warned.has(parsed.host)) {
+    warned.add(parsed.host);
+    try {
+      console.warn(`dash4devs: ${parsed.host} is not papi; using ${PAPI_BASE}. The SDK talks only to papi.`);
+    } catch {
+      /* no console */
+    }
+  }
+  return PAPI_BASE;
+}
+
 export function targetToBase(target: string): string {
   const key = String(target).trim().toLowerCase();
-  if (key === "production" || key === "prod" || key === "api") return API_TARGETS.production;
-  if (key === "papi" || key === "public") return API_TARGETS.papi;
-  throw new Error(
-    `dash4devs: unknown target "${target}". Use "production" (${API_TARGETS.production}) or "papi" (${API_TARGETS.papi}).`
-  );
+  if (["production", "prod", "api", "papi", "public"].includes(key)) return PAPI_BASE;
+  throw new Error(`dash4devs: unknown target "${target}". The SDK talks only to papi (${PAPI_BASE}).`);
 }
 
 /**
@@ -77,12 +105,12 @@ function publicEnvTarget(): string | undefined {
 
 /** Resolve the API base URL from options and environment (see the module comment for the order). */
 export function resolveApiBase(options: ApiBaseOptions = {}): string {
-  if (options.baseURL) return stripSlash(options.baseURL);
-  if (options.apiBase) return stripSlash(options.apiBase);
+  if (options.baseURL) return toPapi(options.baseURL);
+  if (options.apiBase) return toPapi(options.apiBase);
   if (options.target) return targetToBase(options.target);
 
   const envUrl = readEnv("DASH4DEVS_API_URL") || publicEnvApiUrl();
-  if (envUrl) return stripSlash(envUrl);
+  if (envUrl) return toPapi(envUrl);
 
   const envTarget = readEnv("DASH4DEVS_TARGET") || publicEnvTarget();
   if (envTarget) return targetToBase(envTarget);
@@ -90,10 +118,7 @@ export function resolveApiBase(options: ApiBaseOptions = {}): string {
   return DEFAULT_API_BASE;
 }
 
-/** "production" | "papi" for the two known hosts, "custom" for anything else. */
+/** "papi" for papi, "custom" for a local papi. */
 export function describeApiBase(base: string): ApiTarget | "custom" {
-  const clean = stripSlash(base);
-  if (clean === API_TARGETS.production) return "production";
-  if (clean === API_TARGETS.papi) return "papi";
-  return "custom";
+  return stripSlash(base).startsWith(PAPI_BASE) ? "papi" : "custom";
 }
