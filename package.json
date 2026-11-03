@@ -1,6 +1,6 @@
 {
   "name": "dash4devs",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "Storefront SDK for DashForDevs (www.dashfordevs.com) by CodeCraft Studios - products, cart, checkout, content and accounts for any website. Works with api.dashfordevs.com and papi.dashfordevs.com.",
   "type": "module",
   "main": "./dist/index.js",

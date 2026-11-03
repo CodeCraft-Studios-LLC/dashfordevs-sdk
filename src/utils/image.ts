@@ -8,6 +8,10 @@
 
 import { CDN_BASE } from "../core/config.js";
 
+/** Top-level folders the DashForDevs services store media under on the CDN. */
+const CDN_FOLDERS =
+  /^\/(content|inventory|media|emails|sites|brands|organizations|automations|calendar|customers|platforms|orders)\//;
+
 /**
  * An absolute https URL for an image reference:
  *   "https://..."        -> unchanged
@@ -26,6 +30,9 @@ export function cdnImageUrl(src: string | null | undefined, cdnBase: string = CD
   // Media `dash4devs media` made from the site's own media/ folder: served by
   // the site (public/_media), or under its asset prefix. Never the org CDN.
   if (s.startsWith("/_media/")) return s;
+  // A root-relative path outside the CDN's folders ("/images/logo.webp",
+  // "/brand/x.svg") is the site's own public/ file: leave it on the site.
+  if (s.startsWith("/") && !CDN_FOLDERS.test(s)) return s;
   const base = cdnBase.replace(/\/+$/, "");
   return `${base}/${s.replace(/^\/+/, "")}`;
 }

@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.3.1
+
+### Fixed
+- `<DashImage>` / `cdnImageUrl` sent a site's own `public/` files (`/images/logo.webp`, `/brand/x.svg`)
+  to the CDN, where they do not exist (broken logos). A root-relative path now goes to the CDN only
+  under one of its folders (`/content/`, `/inventory/`, `/media/`, `/sites/`, ...); anything else stays
+  on the site.
+
 ## 0.3.0 (unreleased)
 
 ### Changed

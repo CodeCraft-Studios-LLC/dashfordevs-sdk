@@ -63,6 +63,15 @@ describe("DashImage", () => {
     expect(html).toContain('src="https://cdn.dashfordevs.com/content/s.webp"');
   });
 
+  it("keeps the site's own public/ files on the site", () => {
+    for (const src of ["/images/logo-dark.webp", "/brand/logos/logo.svg"]) {
+      const html = renderToString(<R.DashImage image={src as any} alt="" />);
+      expect(html).toContain(`src="${src}"`);
+    }
+    expect(renderToString(<R.DashImage image={"/inventory/org__a/p.png" as any} alt="" />))
+      .toContain('src="https://cdn.dashfordevs.com/inventory/org__a/p.png"');
+  });
+
   it("renders nothing without a URL", () => {
     expect(renderToString(<R.DashImage alt="" />)).toBe("");
   });
