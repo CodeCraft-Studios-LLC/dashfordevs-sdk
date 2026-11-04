@@ -15,17 +15,17 @@ describe("DashVideo", () => {
   it("plays the tallest rendition within maxHeight, CDN-relative paths resolved", async () => {
     const { pickVideoUrl } = await load("dist/react/DashVideo.js");
     const video = {
-      url: "https://cdn.dashfordevs.com/media/o/source.mov",
+      url: "https://cdn.dashfordevs.com/content/o/source.mov",
       ready: true,
       renditions: [
-        { height: 1080, url: "/media/o/1080.mp4" },
-        { height: 640, url: "/media/o/640.mp4" },
-        { height: 720, url: "/media/o/720.mp4" },
+        { height: 1080, url: "/content/o/1080.mp4" },
+        { height: 640, url: "/content/o/640.mp4" },
+        { height: 720, url: "/content/o/720.mp4" },
       ],
     };
-    expect(pickVideoUrl(video)).toBe("https://cdn.dashfordevs.com/media/o/1080.mp4");
-    expect(pickVideoUrl(video, 720)).toBe("https://cdn.dashfordevs.com/media/o/720.mp4");
-    expect(pickVideoUrl(video, 300)).toBe("https://cdn.dashfordevs.com/media/o/640.mp4");
+    expect(pickVideoUrl(video)).toBe("https://cdn.dashfordevs.com/content/o/1080.mp4");
+    expect(pickVideoUrl(video, 720)).toBe("https://cdn.dashfordevs.com/content/o/720.mp4");
+    expect(pickVideoUrl(video, 300)).toBe("https://cdn.dashfordevs.com/content/o/640.mp4");
     expect(pickVideoUrl({ url: "https://x/a.mp4", renditions: [] })).toBe("https://x/a.mp4");
   });
 
@@ -47,10 +47,10 @@ describe("DashVideo", () => {
     const { DashVideo } = await load("dist/react/DashVideo.js");
     const html = renderToStaticMarkup(
       React.createElement(DashVideo, {
-        video: { url: "https://x/a.mp4", poster: "/media/o/poster.webp", poster_lqip: "data:image/webp;base64,AA" },
+        video: { url: "https://x/a.mp4", poster: "/content/o/poster.webp", poster_lqip: "data:image/webp;base64,AA" },
       }),
     );
-    expect(html).toContain('poster="https://cdn.dashfordevs.com/media/o/poster.webp"');
+    expect(html).toContain('poster="https://cdn.dashfordevs.com/content/o/poster.webp"');
     expect(html).toContain("data:image/webp;base64,AA");
   });
 

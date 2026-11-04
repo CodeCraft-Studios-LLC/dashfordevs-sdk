@@ -8,9 +8,11 @@
 
 import { CDN_BASE } from "../core/config.js";
 
-/** Top-level folders the DashForDevs services store media under on the CDN. */
+/** Top-level folders the DashForDevs services store media under on the CDN.
+ * NOT "media": the services never return /media/ paths (content strips the old
+ * media/ prefix), and sites keep their own files in public/media/ (0.3.2). */
 const CDN_FOLDERS =
-  /^\/(content|inventory|media|emails|sites|brands|organizations|automations|calendar|customers|platforms|orders)\//;
+  /^\/(content|inventory|emails|sites|brands|organizations|automations|calendar|customers|platforms|orders)\//;
 
 /**
  * An absolute https URL for an image reference:

@@ -64,7 +64,7 @@ describe("DashImage", () => {
   });
 
   it("keeps the site's own public/ files on the site", () => {
-    for (const src of ["/images/logo-dark.webp", "/brand/logos/logo.svg"]) {
+    for (const src of ["/images/logo-dark.webp", "/brand/logos/logo.svg", "/media/about/about-01.webp"]) {
       const html = renderToString(<R.DashImage image={src as any} alt="" />);
       expect(html).toContain(`src="${src}"`);
     }
