@@ -114,11 +114,18 @@ export function DashImage(props: DashImageProps): React.JSX.Element | null {
   if (!image || !image.url) return null;
 
   const variants = !variantError && image.variants_ready ? image.variants : null;
-  const webpSet = variants ? buildSrcSet(variants.webp) : undefined;
-
   const sorted = ((variants && variants.webp) || [])
     .filter((v) => v && v.url && v.width)
     .sort((a, b) => a.width - b.width);
+  // Never cap a big screen below the uploaded resolution: when the original is
+  // wider than the widest variant (an older, shorter ladder), it tops the srcset
+  // at its own width.
+  const top = sorted.length ? sorted[sorted.length - 1].width : 0;
+  const ladder =
+    sorted.length && image.width && image.width > top && !sorted.some((v) => v.url === image!.url)
+      ? [...sorted, { width: image.width, url: image.url }]
+      : sorted;
+  const webpSet = variants ? buildSrcSet(ladder) : undefined;
   const primarySrc = sorted.length
     ? cdnImageUrl((sorted.find((v) => v.width >= 1024) || sorted[sorted.length - 1]).url)
     : cdnImageUrl(image.url);

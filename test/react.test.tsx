@@ -48,6 +48,14 @@ describe("DashImage", () => {
     expect(html).toContain('aria-hidden="true"');
   });
 
+  it("an original wider than every variant tops the srcset at its own width", () => {
+    const big = { ...image, width: 1672 };
+    const html = renderToString(<R.DashImage image={big} alt="" />);
+    expect(html).toContain("a-1280.webp 1280w, https://dashfordevs.nyc3.cdn.digitaloceanspaces.com/media/a.jpg 1672w");
+    const covered = renderToString(<R.DashImage image={{ ...image, width: 1280 }} alt="" />);
+    expect(covered).not.toContain("a.jpg 1280w");
+  });
+
   it("absolute URLs from production render unchanged", () => {
     const html = renderToString(<R.DashImage src="https://dashfordevs.nyc3.cdn.digitaloceanspaces.com/media/b.jpg" alt="" />);
     expect(html).toContain('src="https://dashfordevs.nyc3.cdn.digitaloceanspaces.com/media/b.jpg"');

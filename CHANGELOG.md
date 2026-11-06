@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.3.3
+
+### Fixed
+- `<DashImage>` never serves a big screen less than the uploaded resolution. papi's variant ladder now
+  ends at each original's own width (up to 3840); for images whose ladder stops short of a known
+  `width`, the original file tops the srcset at that width.
+
 ## 0.3.1
 
 ### Fixed
