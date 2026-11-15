@@ -1,5 +1,23 @@
 # Changelog
 
+## Unreleased
+
+### Added
+- `dash4devs create [dir]`: log in, pick (or create) an organization, get keys, scaffold a project with
+  options (site type, home page, site URL, database region, test/live keys, package manager, install,
+  git). The scaffold's `dash4devs` dependency points at this repo's GitHub tag (it is not on npm).
+  Flags: `--yes`, `--no-install`, `--no-git`.
+- `dash4devs login` / `logout` / `whoami`: browser login with OAuth 2.0 authorization code + PKCE and a
+  loopback redirect (`http://127.0.0.1:53682/callback`) against accounts' OIDC provider. Credentials in
+  `~/.dash4devs/credentials.json` (0600; `DASH4DEVS_HOME` overrides).
+- `dash4devs setup` (an existing folder -> `dash4devs.config.json`) and `dash4devs site` (show it), merged
+  from the old `dash4devs-cli` prototype. `--version` prints the version.
+- PREVIEW: until a public CLI client is registered in accounts (`DASH4DEVS_CLIENT_ID`) and the org-list /
+  site / key endpoints exist, login uses a local sign-in page and orgs, databases and keys are samples.
+  Preview keys are never written to `.env.local`.
+- No new dependencies; the new commands are lazy-loaded, so `init`, `build`, `deploy`, `status` and
+  `media` behave exactly as before.
+
 ## 0.3.3
 
 ### Fixed

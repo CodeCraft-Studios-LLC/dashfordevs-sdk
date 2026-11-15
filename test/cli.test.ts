@@ -36,6 +36,56 @@ describe("dash4devs CLI", () => {
     for (const word of ["init", "build", "deploy", "status", "DASH4DEVS_API_URL", "DASH4DEVS_TARGET"]) expect(out).toContain(word);
   });
 
+  it("--help lists the account + project commands", () => {
+    const out = execFileSync(process.execPath, [BIN, "--help"], { env: { ...process.env, NO_COLOR: "1" } }).toString();
+    for (const word of ["create", "login", "logout", "whoami", "setup"]) expect(out).toContain(word);
+  });
+
+  it("login (preview): browser round trip with state check saves credentials; whoami/logout read them", async () => {
+    const home = fs.mkdtempSync(path.join(os.tmpdir(), "d4d-home-"));
+    const port = String(40000 + Math.floor(Math.random() * 20000));
+    Object.assign(process.env, { DASH4DEVS_HOME: home, DASH4DEVS_LOGIN_PORT: port, DASH4DEVS_NO_BROWSER: "1" });
+    delete process.env.DASH4DEVS_CLIENT_ID;
+    try {
+      const auth = await import(pathToFileURL(path.join(ROOT, "dist/cli/pm/auth.js")).href + `?t=${Math.random()}`);
+      expect(auth.PREVIEW).toBe(true);
+      const done = auth.login({
+        onUrl: async (url: string) => {
+          // A forged state is refused, then the real page's form completes the login.
+          expect((await fetch(`http://127.0.0.1:${port}/callback?state=nope&code=x`)).status).toBe(400);
+          const html = await (await fetch(url)).text();
+          const state = html.match(/name="state" value="([^"]+)"/)![1];
+          const code = html.match(/name="code" value="([^"]+)"/)![1];
+          await fetch(`http://127.0.0.1:${port}/callback?state=${state}&code=${code}&name=Test+Dev&email=dev%40example.com`);
+        },
+      });
+      const creds = await done;
+      expect(creds).toMatchObject({ mode: "preview", user: { name: "Test Dev", email: "dev@example.com" } });
+      const env = { ...process.env, NO_COLOR: "1", DASH4DEVS_HOME: home };
+      expect(execFileSync(process.execPath, [BIN, "whoami"], { env }).toString()).toContain("dev@example.com");
+      expect(execFileSync(process.execPath, [BIN, "logout"], { env }).toString()).toContain("Logged out");
+      expect(fs.existsSync(path.join(home, "credentials.json"))).toBe(false);
+    } finally {
+      for (const k of ["DASH4DEVS_HOME", "DASH4DEVS_LOGIN_PORT", "DASH4DEVS_NO_BROWSER"]) delete process.env[k];
+    }
+  });
+
+  it("create (preview, logged in, no TTY = defaults): scaffolds with the GitHub SDK dep, blank keys and a config", () => {
+    const home = fs.mkdtempSync(path.join(os.tmpdir(), "d4d-home-"));
+    const cwd = fs.mkdtempSync(path.join(os.tmpdir(), "d4d-cwd-"));
+    fs.writeFileSync(path.join(home, "credentials.json"), JSON.stringify({ mode: "preview", user: { name: "T", email: "t@example.com" }, access_token: "preview_x" }));
+    const env = { ...process.env, NO_COLOR: "1", DASH4DEVS_HOME: home, DASH4DEVS_NO_ANIM: "1" };
+    execFileSync(process.execPath, [BIN, "create", "shop", "--yes", "--no-install", "--no-git"], { env, cwd });
+    const root = path.join(cwd, "shop");
+    const pkg = JSON.parse(fs.readFileSync(path.join(root, "package.json"), "utf8"));
+    expect(pkg.dependencies.dash4devs).toMatch(/^github:CodeCraft-Studios-LLC\/dashfordevs-sdk#v/);
+    const envLocal = fs.readFileSync(path.join(root, ".env.local"), "utf8");
+    expect(envLocal).toMatch(/^DEVDASH_SECRET_KEY=$/m);
+    expect(envLocal).not.toContain("preview");
+    const cfg = JSON.parse(fs.readFileSync(path.join(root, "dash4devs.config.json"), "utf8"));
+    expect(cfg).toMatchObject({ site: "shop", dashboard: "ecommerce-standard", database: { region: "us-east-1" } });
+  }, 20000);
+
   it("config: papi only - the old host and other hosts become papi, a local papi is kept", async () => {
     const dir = fs.mkdtempSync(path.join(os.tmpdir(), "d4d-cli-"));
     for (const k of ENV) delete process.env[k];

@@ -11,6 +11,12 @@
  *   dash4devs purge <paths>   Invalidate edge cache for one or more paths
  *   dash4devs rollback <id>   Activate a previous deployment
  *
+ * Account + project setup (merged from dash4devs-cli; lazy-loaded so build/deploy/media never load it):
+ *   dash4devs create [dir]    Log in, pick an org, get keys, scaffold a project (with options)
+ *   dash4devs login | logout | whoami
+ *   dash4devs setup           Set up an existing folder (dash4devs.config.json)
+ *   dash4devs site            Show this folder's setup
+ *
  * Auth:
  *   Reads DASH4DEVS_API_KEY from env (falls back to .env.local / .env).
  *   Must be a secret key (sk_live_* or sk_test_*). `init` prompts for keys.
@@ -36,10 +42,35 @@ const COMMANDS = {
   media: runMedia,
 };
 
+// Account + project setup commands: imported only when used.
+const pm = (name, ...pre) => async (args) => (await import(`./pm/commands/${name}.js`)).run([...pre, ...args], await readVersion());
+const PM_COMMANDS = {
+  create: pm("create"),
+  login: pm("login"),
+  logout: pm("login", "logout"),
+  whoami: pm("login", "whoami"),
+  setup: pm("setup"),
+  site: pm("site"),
+};
+
+async function readVersion() {
+  try {
+    return (await import("../version.js")).SDK_VERSION;
+  } catch {
+    return "";
+  }
+}
+
 async function main() {
   const [, , cmd, ...rest] = process.argv;
 
-  if (!cmd || cmd === "-h" || cmd === "--help") {
+  if (cmd === "-v" || cmd === "--version") {
+    console.log(await readVersion());
+    process.exit(0);
+  }
+
+  const showHelp = !cmd || cmd === "-h" || cmd === "--help";
+  if (showHelp) {
     printBanner();
     console.log(`
 Usage: dash4devs <command> [options]
@@ -51,15 +82,23 @@ Commands:
   status                Show active deployment for this org
   media                 Size the site's own images/videos (media.config.mjs)
 
+Account + projects (preview):
+  create [dir]          Log in, pick an org, get keys, scaffold a project
+  login                 Log in to DashForDevs in your browser
+  logout | whoami       Log out / show who's logged in
+  setup                 Set up an existing folder (dash4devs.config.json)
+  site                  Show this folder's setup
+
 Environment:
   DASH4DEVS_API_KEY     Secret key (sk_*) for your organization
   DASH4DEVS_API_URL     Override API URL (default: https://api.dashfordevs.com)
   DASH4DEVS_TARGET      production | papi (used when no API URL is set)
+  DASH4DEVS_NO_ANIM     Set to turn off Biscuit's animations
 `);
     process.exit(0);
   }
 
-  const handler = COMMANDS[cmd];
+  const handler = COMMANDS[cmd] || PM_COMMANDS[cmd];
   if (!handler) {
     printError(`Unknown command: ${cmd}`);
     process.exit(1);
