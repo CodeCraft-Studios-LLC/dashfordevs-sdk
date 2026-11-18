@@ -278,26 +278,26 @@ export class DashClient {
   }
 
   /**
-   * "Powered by DashForDevs" strip directly under the site's last <footer>,
-   * nofollow and UTM-tagged with the storefront's hostname (v1 behaviour).
+   * "Powered by DashForDevs" strip as the very last element of <body>, so it
+   * is always the bottom of the page (0.3.4: it used to go after the last
+   * <footer>, which put it mid-page or at the top on sites whose last
+   * <footer> is not the page footer, and never showed on pages without one).
+   * Nofollow and UTM-tagged with the storefront's hostname.
    */
   _injectFooterBranding(): void {
     const inject = () => {
-      if (document.getElementById("dash4devs-branding")) return;
+      if (document.getElementById("dash4devs-branding") || !document.body) return;
 
+      // the site already credits us in its own footer
       const footers = document.querySelectorAll("footer");
-      const footer = footers[footers.length - 1];
-      if (!footer) {
-        setTimeout(inject, 500);
-        return;
-      }
-
-      if (
-        footer.innerHTML.includes("dashfordevs.com") ||
-        footer.innerHTML.includes("Powered by Dash4Devs") ||
-        footer.innerHTML.includes("Powered by DashForDevs")
-      ) {
-        return;
+      for (const f of Array.from(footers)) {
+        if (
+          f.innerHTML.includes("dashfordevs.com") ||
+          f.innerHTML.includes("Powered by Dash4Devs") ||
+          f.innerHTML.includes("Powered by DashForDevs")
+        ) {
+          return;
+        }
       }
 
       const brandingDiv = document.createElement("div");
@@ -323,7 +323,16 @@ export class DashClient {
       brandingDiv.appendChild(document.createTextNode(" "));
       brandingDiv.appendChild(ver);
 
-      footer.insertAdjacentElement("afterend", brandingDiv);
+      document.body.appendChild(brandingDiv);
+
+      // Frameworks may re-render <body> (hydration, client navigation); put
+      // the strip back at the end if it gets removed.
+      if (typeof MutationObserver !== "undefined") {
+        const keep = new MutationObserver(() => {
+          if (!document.body.contains(brandingDiv)) document.body.appendChild(brandingDiv);
+        });
+        keep.observe(document.body, { childList: true });
+      }
     };
 
     const schedule: (fn: () => void) => void =

@@ -1,6 +1,13 @@
 # Changelog
 
-## Unreleased
+## 0.3.4
+
+### Fixed
+- The "Powered by DashForDevs" strip is now always the last element of `<body>`, so it sits at the
+  bottom of every page. It used to go after the last `<footer>`, which put it mid-page or at the top
+  on sites whose last `<footer>` is not the page footer, and it never appeared on pages without one.
+  It is put back if a framework re-render removes it.
+
 
 ### Added
 - `dash4devs create [dir]`: log in, pick (or create) an organization, get keys, scaffold a project with
