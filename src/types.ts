@@ -2657,3 +2657,85 @@ export interface RevalidateHandlerOptions {
  * import { createRevalidateHandler } from "@/lib/dash4devs";
  * export const POST = createRevalidateHandler({ secret: process.env.REVALIDATE_SECRET });
  */
+
+// ---------------------------------------------------------------------------
+// Affiliate CRM (2026-11-21): an affiliate's own leads, credited by ?ref= token.
+// ---------------------------------------------------------------------------
+export type AffiliateLeadStatus = "new" | "contacted" | "call_booked" | "proposal_sent" | "won" | "lost";
+/** referral = the affiliate sent the lead (15% at CodeCraft); closed = they also ran the call and closed (25%). */
+export type AffiliateCloseMode = "referral" | "closed";
+export type AffiliateProjectType = "landing_page" | "ecommerce" | "app" | "dashboard" | "other";
+
+export interface AffiliateLeadNote {
+  id: string;
+  body: string;
+  author: "affiliate" | "staff";
+  created_at: string;
+}
+
+export interface AffiliateLead {
+  id: string;
+  name: string;
+  company: string;
+  email: string;
+  phone: string;
+  website: string;
+  project_type: AffiliateProjectType | "";
+  estimated_value: string | null;
+  status: AffiliateLeadStatus;
+  close_mode: AffiliateCloseMode;
+  source: "manual" | "contact_form" | "booking";
+  message: string;
+  /** What the client paid, set by staff once the project is won. */
+  project_amount: string | null;
+  won_at: string | null;
+  /** The booked commission (15% referral, 25% closed), once staff record the payment. */
+  commission: AffiliateLeadCommission | null;
+  notes: AffiliateLeadNote[];
+  created_at: string;
+  updated_at: string;
+}
+
+export interface AffiliateLeadCommission {
+  amount: string;
+  rate: string;
+  /** owed = waiting for payout, paid = paid out, void = lead lost or amount cleared */
+  status: "owed" | "paid" | "void";
+  paid_at: string | null;
+}
+
+export interface AffiliateLeadInput {
+  name: string;
+  company?: string;
+  email?: string;
+  phone?: string;
+  website?: string;
+  project_type?: AffiliateProjectType | "";
+  estimated_value?: string | number | null;
+  status?: AffiliateLeadStatus;
+  close_mode?: AffiliateCloseMode;
+  message?: string;
+}
+
+export interface AffiliateAttributeInput {
+  token: string;
+  name: string;
+  email: string;
+  phone?: string;
+  company?: string;
+  website?: string;
+  interest?: string;
+  message?: string;
+  source?: "contact_form" | "booking";
+  source_url?: string;
+  /** `link`: the code came from the visitor's affiliate link (cookie). `typed`: they entered it on the form. */
+  method?: "link" | "typed";
+}
+
+/** The signed-in affiliate's clicks and form leads per day (affiliates.stats()). */
+export interface AffiliateStats {
+  days: number;
+  series: { date: string; clicks: number; link: number; typed: number }[];
+  totals: { clicks: number; forms: number; forms_from_link: number; forms_typed: number };
+  by_code: { code: string; clicks: number; forms: number }[];
+}

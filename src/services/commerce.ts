@@ -9,6 +9,12 @@ import type {
   FreeShippingCheck,
   MarketingConfig,
   Pagination,
+  AffiliateAttributeInput,
+  AffiliateStats,
+  AffiliateLead,
+  AffiliateLeadInput,
+  AffiliateLeadNote,
+  AffiliateLeadStatus,
   ShippingGetRateOptions,
   ShippingRate,
   ShippingRateOptions,
@@ -554,6 +560,103 @@ export class AffiliatesModule {
     const url = `${this.client.baseURL}/api/storefront/affiliates/dashboard`;
     return this.client._fetch(url, { headers });
   }
+
+  /** The signed-in affiliate's link token (null until approved). Share links are `<page>?ref=<token>`. */
+  async link(): Promise<{ is_affiliate: boolean; token: string | null; codes?: string[] }> {
+    const headers = this._bearer();
+    return this.client._fetch(`${this.client.baseURL}/api/storefront/affiliates/link`, { headers });
+  }
+
+  /**
+   * Share codes the affiliate picks themselves: links are `<page>?afflnk=<code>`.
+   * 3 to 32 lowercase letters, numbers or dashes, unique in the organization, up to 10 each.
+   * Pass the code as `token` to `attribute()`.
+   */
+  readonly codes = {
+    list: (): Promise<{ codes: { code: string; created_at: string }[] }> =>
+      this.client._fetch(`${this.client.baseURL}/api/storefront/affiliates/codes`, { headers: this._bearer() }),
+    create: (code: string): Promise<{ code: { code: string; created_at: string } }> =>
+      this.client._fetch(`${this.client.baseURL}/api/storefront/affiliates/codes`, {
+        method: "POST",
+        headers: this._bearer(),
+        body: JSON.stringify({ code }),
+      }),
+    delete: (code: string): Promise<{ success: boolean }> =>
+      this.client._fetch(`${this.client.baseURL}/api/storefront/affiliates/codes/${encodeURIComponent(code)}`, {
+        method: "DELETE",
+        headers: this._bearer(),
+      }),
+  };
+
+  /**
+   * Credit a lead to the affiliate behind a `?ref=` token (contact and booking forms).
+   * Public: no customer session needed. Unknown or inactive tokens are accepted and ignored.
+   */
+  async attribute(data: AffiliateAttributeInput): Promise<{ success: boolean }> {
+    return this.client._fetch(`${this.client.baseURL}/api/storefront/affiliates/attribute`, {
+      method: "POST",
+      body: JSON.stringify(data),
+    });
+  }
+
+  /** Count one visit that arrived on `?afflnk=<code>` (public; unknown codes are ignored). Call once per session. */
+  async click(code: string, path?: string): Promise<{ success: boolean }> {
+    return this.client._fetch(`${this.client.baseURL}/api/storefront/affiliates/click`, {
+      method: "POST",
+      body: JSON.stringify({ code, path }),
+    });
+  }
+
+  /** The signed-in affiliate's clicks and form leads per day, for the last `days` days (7 to 365, default 30). */
+  async stats(days = 30): Promise<AffiliateStats> {
+    return this.client._fetch(`${this.client.baseURL}/api/storefront/affiliates/stats?days=${days}`, {
+      headers: this._bearer(),
+    });
+  }
+
+  /** The signed-in affiliate's own leads (mini CRM). */
+  readonly leads = {
+    list: (params: { status?: AffiliateLeadStatus; search?: string; page?: number } = {}): Promise<{
+      leads: AffiliateLead[];
+      pagination: Pagination;
+    }> => {
+      const q = new URLSearchParams();
+      if (params.status) q.set("status", params.status);
+      if (params.search) q.set("search", params.search);
+      if (params.page) q.set("page", String(params.page));
+      const qs = q.toString();
+      return this.client._fetch(`${this.client.baseURL}/api/storefront/affiliates/leads${qs ? `?${qs}` : ""}`, {
+        headers: this._bearer(),
+      });
+    },
+    get: (leadId: string): Promise<{ lead: AffiliateLead }> =>
+      this.client._fetch(`${this.client.baseURL}/api/storefront/affiliates/leads/${encodeURIComponent(leadId)}`, {
+        headers: this._bearer(),
+      }),
+    create: (data: AffiliateLeadInput): Promise<{ lead: AffiliateLead }> =>
+      this.client._fetch(`${this.client.baseURL}/api/storefront/affiliates/leads`, {
+        method: "POST",
+        headers: this._bearer(),
+        body: JSON.stringify(data),
+      }),
+    update: (leadId: string, data: Partial<AffiliateLeadInput>): Promise<{ lead: AffiliateLead }> =>
+      this.client._fetch(`${this.client.baseURL}/api/storefront/affiliates/leads/${encodeURIComponent(leadId)}`, {
+        method: "PUT",
+        headers: this._bearer(),
+        body: JSON.stringify(data),
+      }),
+    remove: (leadId: string): Promise<{ success: boolean }> =>
+      this.client._fetch(`${this.client.baseURL}/api/storefront/affiliates/leads/${encodeURIComponent(leadId)}`, {
+        method: "DELETE",
+        headers: this._bearer(),
+      }),
+    addNote: (leadId: string, body: string): Promise<{ note: AffiliateLeadNote }> =>
+      this.client._fetch(`${this.client.baseURL}/api/storefront/affiliates/leads/${encodeURIComponent(leadId)}/notes`, {
+        method: "POST",
+        headers: this._bearer(),
+        body: JSON.stringify({ body }),
+      }),
+  };
 
   async createCode(data: { code: string }): Promise<{ success: boolean; message: string; discount_code: Record<string, any> }> {
     const headers = this._bearer();
