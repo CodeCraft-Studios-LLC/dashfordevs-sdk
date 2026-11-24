@@ -120,6 +120,7 @@ export { InsightsModule } from "./services/insights.js";
 export { UploadModule } from "./services/upload.js";
 export { PageGroupsModule, PageGroup, FormsModule, SurveyModule, ContentTypesModule } from "./services/collections.js";
 export { AdminModule } from "./services/admin.js";
+export type { SendEmailInput, SentEmail } from "./services/admin.js";
 
 // Processor classes (advanced usage)
 export { AuthorizeNetCSR } from "./processors/authorize-net.js";

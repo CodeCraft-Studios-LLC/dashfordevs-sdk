@@ -1,5 +1,17 @@
 # Changelog
 
+## 0.3.6
+
+### Changed
+- `dash.admin.sendEmail(data, { idempotencyKey })` sends through the emails API (`POST /emails/v1/emails`)
+  with the client's own `sk_` key in `X-API-Key`. One key, all services: emails API keys (`dfd_live_sk_`)
+  no longer exist. `data` takes `from`, `to`, `subject`, `html`, `text`, `template` + `data` (one of the
+  organization's email templates), `reply_to`, `cc`, `bcc`. It used to call a route that was never built.
+
+### Added
+- `dash.admin.getEmail(id)` (delivery status) and `dash.admin.listMailboxes()` (addresses the organization
+  can send from). Types `SendEmailInput`, `SentEmail`.
+
 ## 0.3.4
 
 ### Fixed

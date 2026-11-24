@@ -15,6 +15,26 @@ import type { DashClient } from "../client.js";
 type Q = Record<string, string | number | boolean | undefined>;
 type Data = Record<string, any>;
 
+export interface SendEmailInput {
+  from: string;
+  to: string | string[];
+  subject?: string;
+  html?: string;
+  text?: string;
+  /** Slug of one of the organization's email templates; rendered with `data`. */
+  template?: string;
+  data?: Data;
+  reply_to?: string | string[];
+  cc?: string | string[];
+  bcc?: string | string[];
+}
+
+export interface SentEmail {
+  id: string;
+  status: string;
+  [key: string]: any;
+}
+
 function qs(params: Q, keys: string[]): string {
   const p = new URLSearchParams();
   for (const k of keys) {
@@ -180,8 +200,26 @@ export class AdminModule {
   }
 
   // ─── Emails ─────────────────────────────────────────────────────────
-  sendEmail(data: Data) {
-    return this._send("emails/send", "POST", data);
+  // The emails API with this client's sk_ key (one key, all services: there is
+  // no separate emails key). `from` is a mailbox the organization owns.
+  // `template` + `data` render one of the organization's email templates;
+  // `idempotencyKey` makes a retried send never send twice.
+  sendEmail(data: SendEmailInput, options: { idempotencyKey?: string } = {}): Promise<SentEmail> {
+    const headers: Record<string, string> = {};
+    if (options.idempotencyKey) headers["Idempotency-Key"] = options.idempotencyKey;
+    return this.client._fetch(`${this.client.baseURL}/emails/v1/emails`, {
+      method: "POST",
+      body: JSON.stringify(data),
+      headers,
+    });
+  }
+  /** Delivery status of one sent message. */
+  getEmail(messageId: string): Promise<SentEmail> {
+    return this.client._fetch(`${this.client.baseURL}/emails/v1/emails/${encodeURIComponent(messageId)}`);
+  }
+  /** The addresses this organization can send from. */
+  listMailboxes(): Promise<{ mailboxes: Data[] }> {
+    return this.client._fetch(`${this.client.baseURL}/emails/v1/mailboxes`);
   }
   listEmailThreads(options: { filter?: string; search?: string } = {}) {
     return this._get(`emails/threads${qs(options, ["filter", "search"])}`);

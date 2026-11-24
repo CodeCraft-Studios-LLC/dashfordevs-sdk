@@ -300,7 +300,6 @@ function adminScenarios(): Scenario[] {
     ["updateCustomer", (a) => a.updateCustomer("cu1", {})],
     ["listMedia", (a) => a.listMedia({ folder: "f", search: "s" })],
     ["deleteMedia", (a) => a.deleteMedia("m1")],
-    ["sendEmail", (a) => a.sendEmail({})],
     ["listEmailThreads", (a) => a.listEmailThreads({ filter: "f", search: "s" })],
     ["getEmailThread", (a) => a.getEmailThread("t1")],
     ["listDiscountCodes", (a) => a.listDiscountCodes({ search: "s" })],
