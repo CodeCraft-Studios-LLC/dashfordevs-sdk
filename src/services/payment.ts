@@ -3,8 +3,9 @@
  *
  * Processor-agnostic payments. In the browser, load() fetches the active
  * processor and its PUBLIC client config and loads only that processor's
- * library (Accept.js for Authorize.net); tokenize() turns card data into an
- * opaque token. charge/authorize/capture/void go through the storefront API,
+ * library (Accept.js for Authorize.net, Stripe.js for Stripe); tokenize() turns card data into an
+ * opaque token. Stripe (2026-11-25): mountCard() puts Stripe Elements in the site's own
+ * checkout (never a Stripe-hosted page) and tokenize() returns a PaymentMethod id. charge/authorize/capture/void go through the storefront API,
  * which holds the processor credentials.
  *
  * v2: charge() and authorize() mask `line_items` (names -> "Item N",
@@ -31,6 +32,7 @@ import type {
 } from "../types.js";
 import { AuthorizeNetCSR } from "../processors/authorize-net.js";
 import { QuickBooksCSR } from "../processors/quickbooks.js";
+import { StripeCSR, type StripeBilling, type StripeCardState, type StripeCardTargets, type StripeFieldStyle } from "../processors/stripe.js";
 import { GooglePayCSR } from "../processors/google-pay.js";
 import { maskLineItems, maskPaymentDescription } from "../core/privacy.js";
 
@@ -57,7 +59,7 @@ export class PaymentModule {
   client: DashClient;
   _processor: ProcessorInfo | null;
   _clientConfig: Record<string, any> | null;
-  _handler: AuthorizeNetCSR | QuickBooksCSR | null;
+  _handler: AuthorizeNetCSR | QuickBooksCSR | StripeCSR | null;
   _loading: Promise<StorefrontPaymentProcessor> | null;
   _loaded: boolean;
 
@@ -112,7 +114,7 @@ export class PaymentModule {
   }
 
   /** Tokenize card data with the loaded processor (browser only). */
-  async tokenize(cardData: CardData): Promise<PaymentToken> {
+  async tokenize(cardData: CardData | StripeBilling = {} as StripeBilling): Promise<PaymentToken> {
     if (!this._loaded || !this._handler) {
       throw new Error("Payment processor not loaded. Call dash.payment.load() first.");
     }
@@ -123,7 +125,29 @@ export class PaymentModule {
       );
     }
 
-    return this._handler.tokenize(cardData) as Promise<PaymentToken>;
+    if (this._handler instanceof StripeCSR) {
+      // Stripe reads the card from the mounted Elements; cardData only carries billing details.
+      return this._handler.tokenize(cardData as StripeBilling) as Promise<PaymentToken>;
+    }
+    return (this._handler as AuthorizeNetCSR | QuickBooksCSR).tokenize(cardData as CardData) as Promise<PaymentToken>;
+  }
+
+  /** Stripe only: true when the card is collected by mountCard() instead of raw inputs. */
+  get usesCardElements(): boolean {
+    return this._processor?.slug === "stripe";
+  }
+
+  /**
+   * Stripe: mount the card number, expiry and CVC fields (Stripe Elements) into
+   * the site's own containers, styled by `options.style`. Returns unmount().
+   * Call after load(). Authorize.net sites keep their own inputs + tokenize(cardData).
+   */
+  mountCard(targets: StripeCardTargets, options: StripeFieldStyle = {}, onChange?: (state: StripeCardState) => void): () => void {
+    if (!this._loaded || !this._handler) throw new Error("Call dash.payment.load() first.");
+    if (!(this._handler instanceof StripeCSR)) {
+      throw new Error(`mountCard() is for Stripe; this store uses ${this._processor?.slug}. Use tokenize(cardData).`);
+    }
+    return this._handler.mount(targets, options, onChange);
   }
 
   /** Authorize and capture in one call. */
@@ -259,14 +283,16 @@ export class PaymentModule {
     });
   }
 
-  _createHandler(slug: string, config: Record<string, any>): AuthorizeNetCSR | QuickBooksCSR {
+  _createHandler(slug: string, config: Record<string, any>): AuthorizeNetCSR | QuickBooksCSR | StripeCSR {
     switch (slug) {
       case "authorize-net":
         return new AuthorizeNetCSR(config as any);
       case "quickbooks":
         return new QuickBooksCSR(config);
+      case "stripe":
+        return new StripeCSR(config as any);
       default:
-        throw new Error(`Unsupported payment processor: ${slug}. Supported: authorize-net, quickbooks.`);
+        throw new Error(`Unsupported payment processor: ${slug}. Supported: authorize-net, stripe, quickbooks.`);
     }
   }
 }

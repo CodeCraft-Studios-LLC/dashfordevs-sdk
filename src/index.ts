@@ -125,6 +125,8 @@ export type { SendEmailInput, SentEmail } from "./services/admin.js";
 // Processor classes (advanced usage)
 export { AuthorizeNetCSR } from "./processors/authorize-net.js";
 export { QuickBooksCSR } from "./processors/quickbooks.js";
+export { StripeCSR } from "./processors/stripe.js";
+export type { StripeBilling, StripeCardState, StripeCardTargets, StripeFieldStyle } from "./processors/stripe.js";
 export { GooglePayCSR } from "./processors/google-pay.js";
 
 // v2 additions
