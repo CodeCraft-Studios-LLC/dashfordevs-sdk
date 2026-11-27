@@ -644,6 +644,8 @@ export interface PingResponse {
   status: string;
   message: string;
   organization: { id: string; name: string; is_locked: boolean };
+  /** Present on papi from 2026-11-27. hipaa = the organization has HIPAA turned on. */
+  security?: { hipaa: boolean; idle_minutes: number | null; countdown_minutes: number | null };
   environment: string;
   timestamp: string;
 }
@@ -2299,6 +2301,11 @@ export type FormFieldType =
 export interface FormField {
   name: string;
   label: string;
+  /**
+   * A FormFieldType, or "heading": words between questions (the label is the
+   * heading, `content` a paragraph) that take no answer. "heading" is not in
+   * the FormFieldType union so that code typed against v1's union still fits.
+   */
   type: FormFieldType | string;
   required?: boolean;
   required_message?: string;
@@ -2314,6 +2321,10 @@ export interface FormField {
   signature_width?: number;
   signature_height?: number;
   disabled?: boolean;
+  /** A "heading" field's paragraph. */
+  content?: string;
+  /** A "hidden" field's value, sent with every answer unless the page sets its own. */
+  value?: string;
   [key: string]: any;
 }
 
@@ -2324,6 +2335,10 @@ export interface FormSchema {
   fields: FormField[];
   success_message?: string;
   redirect_url?: string;
+  /** What the form is for: "form", "intake" or "consent". */
+  kind?: string;
+  /** True when only a signed-in customer may send it (the API answers 401 otherwise). */
+  sign_in_required?: boolean;
   [key: string]: any;
 }
 

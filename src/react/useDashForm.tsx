@@ -40,6 +40,12 @@ export interface DashFormFieldAccessor {
 export interface UseDashFormOptions {
   client?: DashClient;
   initialValues?: Record<string, unknown>;
+  /**
+   * Called with the answers just before they are sent (after the form's own
+   * checks pass). Return false, or a promise of it, to stop: nothing is sent
+   * and nothing is reported as an error.
+   */
+  onSubmit?: (answers: Record<string, unknown>) => boolean | void | Promise<boolean | void>;
   onSuccess?: (response: any) => void;
   onError?: (err: any) => void;
 }
@@ -79,6 +85,9 @@ function defaultValueForField(field: any): unknown {
       return "";
   }
 }
+
+// "heading" is words between questions (forms.dashfordevs.com): it takes no answer.
+const NO_ANSWER_TYPES = new Set(["heading"]);
 
 function shouldShowField(field: any, values: Record<string, unknown>): boolean {
   const cond = field?.show_when;
@@ -151,7 +160,11 @@ export function useDashForm(slug: string, options: UseDashFormOptions = {}): Use
         setValues((prev) => {
           const next = { ...prev };
           for (const field of f?.fields || []) {
-            if (next[field.name] === undefined) next[field.name] = defaultValueForField(field);
+            if (NO_ANSWER_TYPES.has(field.type)) continue;
+            // A hidden field starts with the value the form gives it (a source, a campaign).
+            if (next[field.name] === undefined) {
+              next[field.name] = field.type === "hidden" && field.value ? field.value : defaultValueForField(field);
+            }
           }
           return next;
         });
@@ -359,7 +372,7 @@ export function useDashForm(slug: string, options: UseDashFormOptions = {}): Use
   const validateAll = useCallback(() => {
     const out: Record<string, string> = {};
     for (const def of schema?.fields || []) {
-      if (!shouldShowField(def, values)) continue;
+      if (NO_ANSWER_TYPES.has(def.type) || !shouldShowField(def, values)) continue;
       const err = clientSideValidate(def, values[def.name]);
       if (err) out[def.name] = err;
     }
@@ -370,7 +383,7 @@ export function useDashForm(slug: string, options: UseDashFormOptions = {}): Use
     const out: Record<string, unknown> = {};
     const sigs: Array<{ field_name: string; value: string }> = [];
     for (const def of schema?.fields || []) {
-      if (!shouldShowField(def, values)) continue;
+      if (NO_ANSWER_TYPES.has(def.type) || !shouldShowField(def, values)) continue;
       const v = values[def.name];
       if (def.type === "signature") {
         if (typeof v === "string" && v.trim()) {
@@ -401,6 +414,7 @@ export function useDashForm(slug: string, options: UseDashFormOptions = {}): Use
       setSubmitting(true);
       try {
         const { answers, signatures } = collectPayload();
+        if (options.onSubmit && (await options.onSubmit(answers)) === false) return;
         const res: any = await client.forms.submit(slug, {
           answers,
           signatures,

@@ -55,6 +55,7 @@ import {
   CalendarModule,
 } from "./services/account.js";
 import { ShippingModule, TaxModule, MarketingModule, AffiliatesModule } from "./services/commerce.js";
+import { ChatModule } from "./services/chat.js";
 import { TrackingModule } from "./services/tracking.js";
 import { InsightsModule } from "./services/insights.js";
 import { UploadModule } from "./services/upload.js";
@@ -85,6 +86,8 @@ export class DashClient {
   readonly checkout: CheckoutModule;
   readonly email: EmailModule;
   readonly shipping: ShippingModule;
+  /** Chat between the signed-in customer and the business. */
+  readonly chat: ChatModule;
   readonly tracking: TrackingModule;
   readonly insights: InsightsModule;
   readonly contact: ContactModule;
@@ -190,6 +193,7 @@ export class DashClient {
     this.checkout = new CheckoutModule(this);
     this.email = new EmailModule(this);
     this.shipping = new ShippingModule(this);
+    this.chat = new ChatModule(this);
     this.tracking = new TrackingModule(this);
     this.insights = new InsightsModule(this);
     this.contact = new ContactModule(this);
@@ -410,6 +414,27 @@ export class DashClient {
   async ping(): Promise<PingResponse> {
     const url = `${this.baseURL}/api/storefront/ping`;
     return this._fetch(url);
+  }
+
+  private _security?: Promise<{ hipaa: boolean; idleMinutes: number; countdownMinutes: number }>;
+
+  /**
+   * The organization's security posture, asked once per page (cached). A HIPAA
+   * organization's storefront signs customers out after inactivity. If papi
+   * cannot be reached, the answer is "not known": no timer, nothing blocked.
+   */
+  security(): Promise<{ hipaa: boolean; idleMinutes: number; countdownMinutes: number }> {
+    if (!this._security) {
+      this._security = this.ping().then(
+        (res) => ({
+          hipaa: Boolean(res.security?.hipaa),
+          idleMinutes: res.security?.idle_minutes ?? 5,
+          countdownMinutes: res.security?.countdown_minutes ?? 10,
+        }),
+        () => ({ hipaa: false, idleMinutes: 5, countdownMinutes: 10 }),
+      );
+    }
+    return this._security;
   }
 
   /**

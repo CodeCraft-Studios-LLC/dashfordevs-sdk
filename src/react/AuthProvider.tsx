@@ -10,6 +10,7 @@
 
 import React, { createContext, useCallback, useContext, useEffect, useMemo, useState } from "react";
 import type { DashClient } from "../client.js";
+import { HipaaIdleGuard } from "./HipaaIdleGuard.js";
 
 export interface Customer {
   id: string;
@@ -264,7 +265,13 @@ export function AuthProvider({
     [customer, isLoading, isAuthenticated, requestOTP, loginWithOTP, login, register, setPassword, logout, updateProfile, refreshProfile]
   );
 
-  return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
+  return (
+    <AuthContext.Provider value={value}>
+      {children}
+      {/* HIPAA organizations only (asked of papi once): sign out after inactivity. */}
+      <HipaaIdleGuard client={client} signedIn={Boolean(customer)} onSignOut={logout} />
+    </AuthContext.Provider>
+  );
 }
 
 export function useAuth(): AuthContextType {

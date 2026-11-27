@@ -143,3 +143,6 @@ export type { ContactSubmitData } from "./services/content.js";
 export type * from "./types.js";
 
 export default DashClient;
+
+export { ChatModule, mergeChatMessages } from "./services/chat.js";
+export type { ChatMessage, ChatState, ChatWidget } from "./services/chat.js";

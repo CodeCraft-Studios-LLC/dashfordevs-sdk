@@ -1,5 +1,27 @@
 # Changelog
 
+## 0.3.9 (2026-11-27)
+
+- `<DashForm slug="...">` (dash4devs/react): a form built on forms.dashfordevs.com, drawn whole: every
+  field's label, input, help and error, the button, and the message once it is sent. `onSubmit(answers)`
+  runs just before sending (return false to stop), `onSuccess(result)` and `onError(error)` after.
+  Layout only, no colours: style the `dash-form-*` class names or pass `classNames`.
+- `useDashForm(slug, { onSubmit })`: the same say before sending, for a layout of your own.
+- `dash.forms.get` / `dash.forms.submit` now answer on papi (`/api/storefront/forms/<slug>`): the
+  published form's fields, and answers kept with the customer who sent them (a signed-in customer, or
+  the one with the email the form asks for). A refusal is a `DashApiError` with `fields: {name: reason}`.
+- A field whose `type` is `"heading"` is words between questions and takes no answer (`FormField.content`
+  is its paragraph); `FormField.value` (a hidden field's value), `FormSchema.kind` / `.sign_in_required`.
+
+## 0.3.8 (2026-11-27)
+
+- `dash.chat` and `<DashChat>` (dash4devs/react): a signed-in customer's chat with the business: text,
+  replies, reactions, stickers, and cards the business sends (reminder, bill to pay, link). Message HTML is
+  sanitized by the server and again in the component; cards are structured data, never HTML.
+- `dash.security()` and `<HipaaIdleGuard>`: for an organization with HIPAA on, a signed-in customer is
+  signed out after inactivity (5 minutes, then a 10:00 warning). `AuthProvider` renders it for you.
+- `PingResponse.security` (`hipaa`, `idle_minutes`, `countdown_minutes`).
+
 ## 0.3.6
 
 ### Changed
